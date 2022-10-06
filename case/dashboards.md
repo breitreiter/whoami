@@ -13,15 +13,15 @@ Nova dashboards is a framework developed to replace SolarWinds legacy dashboards
 
 ## The Problems 
 
-Maintainability - The legacy dashboard system implemented each widget as a distinct bundle of code, packaged and distributed with a related product. This meant widgets were difficult to normalize, difficult to re-style, and difficult to fix.
+**Maintainability** - The legacy dashboard system implemented each widget as a distinct bundle of code, packaged and distributed with a related product. This meant widgets were difficult to normalize, difficult to re-style, and difficult to fix.
 
-Time to Market- The legacy dashboard system required shipping a new build of a product in order to deliver a new view. This made it difficult to respond to changing market conditions and to deliver incremental functionality to close deals.
+**Time to Market** - The legacy dashboard system required shipping a new build of a product in order to deliver a new view. This made it difficult to respond to changing market conditions and to deliver incremental functionality to close deals.
 
-API Proliferation - Traditionally, the SWIS data API was the only approved way to access our data. Due to acquisitions and new purpose-built APIs, the dashboard system needed to support querying and presenting data from many sources.
+**API Proliferation** - Traditionally, the SWIS data API was the only approved way to access our data. Due to acquisitions and new purpose-built APIs, the dashboard system needed to support querying and presenting data from many sources.
 
 ## Our Responses
 
-img:Viewing a Nova dashboard
+![Example dashboard screenshot](/images/dashboard_screen.png)
 
 Widget Shapes We performed an inventory of our 400+ legacy widgets and normalized them into six basic types:
 
@@ -47,7 +47,7 @@ Presentation is about taking a raw result set and turning it into legible contro
 
 ## Outcome
 
-img:Users respond to the beta release of Nova dashboards
+![Users respond to the beta release of Nova dashboards](/images/dashboard_user_reactions.png)
 
 We released an incomplete preview of Nova dashboards for our core products in April of 2020. Reaction from the community was quite positive, but adoption has been slow due to the limited set of released features.
 
@@ -57,21 +57,25 @@ In December of last year SolarWinds discovered a major security breach in our bu
 
 The smallest unit of presentation logic is what I’ve termed a “formatter.” A formatter is a recipe for extracting values from a result set and turning them into markup. In some cases, this is quite simple:
 
-img:A simple formatter
+![A simple number formatter](/images/dashboard_number_formatter.png)
 
 In other cases, the mapping can be quite complex:
 
-img:A complex formatter
+![A complex entity formatter](/images/dashboard_entity_formatter.png)
 
 In the example above (a link to a monitored object), we want to provide a lot of information scent to the user. Leaving the current research task and moving to a new page is expensive, especially if the origin page loses state related to your ongoing task.
 
 To present the required information, the formatter needs to know where to find all this stuff in the data model. The initial approach was to create an “entity link formatter” which prompted the user to supply data for the various required fields:
+
+![Form for configuring an entity formatter](/images/dashboard_complex_formatter.png)
 
 I wanted UX to maintain an approved set of formatters. This would enforce consistency across our many products. If a product needed a unique variant, we would review the request and carefully integrate the new use case into the formatter logic.
 
 In practice, I found this process was too slow. It created a bottleneck which slowed delivery of new dashboards. It also created complex chains of development interdependency. Multiple teams may need minor variations on one formatter and may need to ship the formatter on different schedules. This meant both development and UX had to maintain multiple versions of a formatter and keep track of which behaviors were shipped with which release.
 
 In response to these problems, I reworked formatters to be defined in Handlebars:
+
+![A complex entity formatter](/images/dashboard_handlebars.png)
 
 This is admittedly less user-friendly. If you’ve never worked with Handlebars it can be daunting to build functional, syntactically valid markup. It also makes it more difficult for UX to enforce consistency across the product.
 
