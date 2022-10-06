@@ -4,15 +4,12 @@ title: Nova Dashboards
 subtitle: Dashboard system redesign
 layout: default
 ---
-
-Role: Concept, Design 
-
+My Role: Concept, Design 
 Lifecycle: New framework
 
 Nova dashboards is a framework developed to replace SolarWinds legacy dashboards. Construction was halted after the discovery of the Sunburst attack and the subsequent re-allocation of engineering to securing the build pipeline and auditing existing code.
 
-## The Problems 
-
+## The Problems
 **Maintainability** - The legacy dashboard system implemented each widget as a distinct bundle of code, packaged and distributed with a related product. This meant widgets were difficult to normalize, difficult to re-style, and difficult to fix.
 
 **Time to Market** - The legacy dashboard system required shipping a new build of a product in order to deliver a new view. This made it difficult to respond to changing market conditions and to deliver incremental functionality to close deals.
@@ -20,7 +17,6 @@ Nova dashboards is a framework developed to replace SolarWinds legacy dashboards
 **API Proliferation** - Traditionally, the SWIS data API was the only approved way to access our data. Due to acquisitions and new purpose-built APIs, the dashboard system needed to support querying and presenting data from many sources.
 
 ## Our Responses
-
 ![Example dashboard screenshot](../images/dashboard_screen.png)
 
 Widget Shapes We performed an inventory of our 400+ legacy widgets and normalized them into six basic types:
@@ -38,7 +34,6 @@ All users (including SolarWinds developers and community content creators) use t
 If a user composes a particularly useful dashboard or widget, they can share it with the larger community and join the ranks of content creators. SolarWinds marketing, and product management can respond to emerging competitive threats by rapidly creating and delivering new dashboards. Sales engineers can create a bespoke dashboard to tell a story about how we solve a difficult customer problem.
 
 ## An Agnostic Builder
-
 The built-in editor has a clear separation between the task of defining a data model and configuring presentation.
 
 A data model includes instructions for querying a particular API, retrieving a set of data, and normalizing that data. Individual API providers must supply tailored screens which plug into the widget configuration process. The API plugin gathers any data needed to perform the query and formats the output into something usable by our dashboard system.
@@ -46,7 +41,6 @@ A data model includes instructions for querying a particular API, retrieving a s
 Presentation is about taking a raw result set and turning it into legible controls. This includes mapping the result set to elements of the widget, determining how numeric readings are presented, and generating links to other parts of the product. The separation of data and presentation configuration allows a single presentation codebase to show data from any supported backend.
 
 ## Outcome
-
 ![Users respond to the beta release of Nova dashboards](../images/dashboard_user_reactions.png)
 
 We released an incomplete preview of Nova dashboards for our core products in April of 2020. Reaction from the community was quite positive, but adoption has been slow due to the limited set of released features.
@@ -54,7 +48,6 @@ We released an incomplete preview of Nova dashboards for our core products in Ap
 In December of last year SolarWinds discovered a major security breach in our build pipeline (Sunburst). Feature work was frozen at that time as the company pivoted to protecting our customers and rebuilding confidence.
 
 ## One Detail
-
 The smallest unit of presentation logic is what I’ve termed a “formatter.” A formatter is a recipe for extracting values from a result set and turning them into markup. In some cases, this is quite simple:
 
 ![A simple number formatter](../images/dashboard_number_formatter.png)
