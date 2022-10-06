@@ -2,6 +2,7 @@
 id: nova-dashboards
 title: Nova Dashboards
 subtitle: Dashboard system redesign
+layout: default
 ---
 
 Role: Concept, Design 
