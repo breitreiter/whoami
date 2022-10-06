@@ -21,7 +21,7 @@ Nova dashboards is a framework developed to replace SolarWinds legacy dashboards
 
 ## Our Responses
 
-![Example dashboard screenshot](/images/dashboard_screen.png)
+![Example dashboard screenshot](../images/dashboard_screen.png)
 
 Widget Shapes We performed an inventory of our 400+ legacy widgets and normalized them into six basic types:
 
@@ -47,7 +47,7 @@ Presentation is about taking a raw result set and turning it into legible contro
 
 ## Outcome
 
-![Users respond to the beta release of Nova dashboards](/images/dashboard_user_reactions.png)
+![Users respond to the beta release of Nova dashboards](../images/dashboard_user_reactions.png)
 
 We released an incomplete preview of Nova dashboards for our core products in April of 2020. Reaction from the community was quite positive, but adoption has been slow due to the limited set of released features.
 
@@ -57,17 +57,17 @@ In December of last year SolarWinds discovered a major security breach in our bu
 
 The smallest unit of presentation logic is what I’ve termed a “formatter.” A formatter is a recipe for extracting values from a result set and turning them into markup. In some cases, this is quite simple:
 
-![A simple number formatter](/images/dashboard_number_formatter.png)
+![A simple number formatter](../images/dashboard_number_formatter.png)
 
 In other cases, the mapping can be quite complex:
 
-![A complex entity formatter](/images/dashboard_entity_formatter.png)
+![A complex entity formatter](../images/dashboard_entity_formatter.png)
 
 In the example above (a link to a monitored object), we want to provide a lot of information scent to the user. Leaving the current research task and moving to a new page is expensive, especially if the origin page loses state related to your ongoing task.
 
 To present the required information, the formatter needs to know where to find all this stuff in the data model. The initial approach was to create an “entity link formatter” which prompted the user to supply data for the various required fields:
 
-![Form for configuring an entity formatter](/images/dashboard_complex_formatter.png)
+![Form for configuring an entity formatter](../images/dashboard_complex_formatter.png)
 
 I wanted UX to maintain an approved set of formatters. This would enforce consistency across our many products. If a product needed a unique variant, we would review the request and carefully integrate the new use case into the formatter logic.
 
@@ -75,7 +75,7 @@ In practice, I found this process was too slow. It created a bottleneck which sl
 
 In response to these problems, I reworked formatters to be defined in Handlebars:
 
-![A complex entity formatter](/images/dashboard_handlebars.png)
+![A complex entity formatter](../images/dashboard_handlebars.png)
 
 This is admittedly less user-friendly. If you’ve never worked with Handlebars it can be daunting to build functional, syntactically valid markup. It also makes it more difficult for UX to enforce consistency across the product.
 
