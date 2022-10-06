@@ -2905,11 +2905,15 @@ input, select, textarea {
 
 			.statistics li strong, .statistics li b {
 				display: block;
-				font-size: 2em;
+				font-size: 1.6em;
 				line-height: 1.1;
 				color: inherit !important;
 				font-weight: 300;
 				letter-spacing: -0.025em;
+			}
+
+			.statistics img.companylogo {
+				width: 80px;
 			}
 
 			.statistics li:first-child {
