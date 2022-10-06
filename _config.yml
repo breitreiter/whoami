@@ -3,5 +3,6 @@ email: joseph@dreamlands.org
 description: >- # this means to ignore newlines until "baseurl:"
   Full-stack designer with seven years UX design, six years front-end development, 
   and four years back-end development. Designing products that make IT professionals look good.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/whoami" # the subpath of your site, e.g. /blog
+url: "https://breitreiter.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
