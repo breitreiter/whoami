@@ -26,7 +26,7 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="#intro" class="active">Who am I?</a></li>
-							<li><a href="#resume">Resume</a></li>
+							<li><a href="#resume">Timeline</a></li>
 							<li><a href="#projects">Projects</a></li>
 							<li><a href="#fun">Fun Stuff</a></li>
 						</ul>
@@ -55,11 +55,14 @@
 
 						<!-- First Section -->
 							<section id="resume" class="main special">
-								<header class="alt">
-									<h2>Resume</h2>
+								<header class="major">
+									<h2>Timeline</h2>
 								</header>
 								<ul class="statistics">
-									<li class="style1">
+									<li class="style1" 
+									    onmouseover="document.getElementById('job_protier').style.display = 'block';"
+									    onmouseover="document.getElementById('job_protier').style.display = 'none';"
+									    >
 										<img class="companylogo" src="images/logo_protier.png"/>
 										<strong>ProTier</strong>
 										UI Developer<br/>
@@ -90,31 +93,25 @@
 										2021-Present
 									</li>
 								</ul>
-								<p class="content">
-									Nam elementum nisl et mi a<br/>
-									commodo porttitor. Morbi sit amet<br/>
-									nisl eu arcu faucibus hendrerit<br/>
-									<strong>vel a risus:</strong> Nam a orci mi, elementum ac 
-									arcu sit amet, fermentum pellentesque et purus. Integer maximus varius 
-									lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, 
-									sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a 
-									mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et 
-									accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac 
-									risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam
-									porta. Cras eu ornare dui curabitur lacinia.</p>
+								<p class="content" id="job_protier" style="display:none">
+									<strong>Stage:</strong> Startup<br/>
+									<strong>Tools:</strong> C#, ASP.NET, Javascript (jQuery)<br/>
+									ProTier was a New Orleans-based startup. Our initial focus was hosting desktop applications
+									(Microsoft Office, etc) for customers using thin clients. We realized that our real value
+									was the infrastructure automation we built on top of VMware to spin up capacity on-demand.
+									We pivoted to a virtualization automation company and were acquired by Surgient.
+								</p>
 								<footer class="major">
 									<ul class="actions special">
-										<li><a href="generic.html" class="button">Download a traditional PDF</a></li>
+										<li><a href="generic.html" class="button">Download a PDF Resume</a></li>
 									</ul>
 								</footer>
 							</section>
 
 						<!-- Second Section -->
 							<section id="projects" class="main special">
-								<header class="alt">
+								<header class="major">
 									<h2>Projects</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
 								</header>
 								<ul class="features">
 									<li>
