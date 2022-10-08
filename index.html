@@ -1,12 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Stellar by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Stellar by HTML5 UP</title>
+		<title>Joseph Breitreiter</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,7 +14,8 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<span class="logo"><img src="illus/designer-tools.svg" alt="Design tools" /></span>
+						<span class="logo" ><img src="images/pic01.jpg" alt="" style="border-radius:100%; border: solid 6px whitesmoke" /></span>
+						<h1>Hey, I'm Joseph</h1>
 					</header>
 
 				<!-- Nav -->
@@ -37,19 +33,23 @@
 
 						<!-- Introduction -->
 							<section id="intro" class="main">
-								<div class="spotlight">
-									<div class="content">
-										<header class="major">
-											<h2>Hey, I'm Joseph</h2>
-										</header>
-										<p>I'm a "full-stack" designer with seven years UX design, six years 
+								<div class="spotlight" style="column-gap: 50px;">
+									<div class="content" >
+										<p>
+											I'm a "full-stack" designer with seven years UX design, six years 
 											front-end development, and four years back-end development. 
-											I design products that make IT professionals look good.</p>
+											I design products that make IT professionals look good.
+										</p>
+										<p>
+											My particular focus is on data visualization and the sensemaking
+											and research task. I am fascinated by how users sift through, 
+											draw conclusions, and build cases from large volumes of data.
+										</p>
 										<ul class="actions">
 											<li><a href="mailto:contact@dreamlands.org" class="button">Let's Talk</a></li>
 										</ul>
 									</div>
-									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+									<img class="decoration" src="illus/lounge-the-workplace-of-a-marketer.png" alt="" />
 								</div>
 							</section>
 
@@ -59,48 +59,124 @@
 									<h2>Timeline</h2>
 								</header>
 								<ul class="statistics">
-									<li class="style1" 
-									    onmouseover="document.getElementById('job_protier').style.display = 'block';"
-									    onmouseover="document.getElementById('job_protier').style.display = 'none';"
-									    >
+									<li class="style1" onclick="window.location='#job_protier'">
 										<img class="companylogo" src="images/logo_protier.png"/>
 										<strong>ProTier</strong>
 										UI Developer<br/>
 										2001-2003
 									</li>
-									<li class="style2">
+									<li class="style2" onclick="window.location='#job_surgient'">
 										<img class="companylogo" src="images/logo_surgient.png"/>
 										<strong>Surgient</strong>
 										Engineer<br/>
 										2003-2007
 									</li>
-									<li class="style3">
+									<li class="style3" onclick="window.location='#job_hyper9'">
 										<img class="companylogo" src="images/logo_hyper9.png"/>
 										<strong>Hyper9</strong>
 										UI Lead<br/>
 										2007-2011
 									</li>
-									<li class="style4">
+									<li class="style4" onclick="window.location='#job_solarwinds'">
 										<img class="companylogo" src="images/logo_solarwinds.png"/>
 										<strong>SolarWinds</strong>
 										Principal Designer<br/>
 										2011-2021
 									</li>
-									<li class="style5">
+									<li class="style5" onclick="window.location='#job_featurebase'">
 										<img class="companylogo" src="images/logo_featurebase.png"/>
 										<strong>Featurebase</strong>
 										Principal Designer<br/>
 										2021-Present
 									</li>
 								</ul>
-								<p class="content" id="job_protier" style="display:none">
-									<strong>Stage:</strong> Startup<br/>
-									<strong>Tools:</strong> C#, ASP.NET, Javascript (jQuery)<br/>
-									ProTier was a New Orleans-based startup. Our initial focus was hosting desktop applications
-									(Microsoft Office, etc) for customers using thin clients. We realized that our real value
-									was the infrastructure automation we built on top of VMware to spin up capacity on-demand.
-									We pivoted to a virtualization automation company and were acquired by Surgient.
-								</p>
+
+								<ul class="joblist">
+									<li id="job_protier">
+										<h4>ProTier</h4>
+										<span class="jobtags">
+											<span class="company">startup</span>
+											<span class="role">developer</span>
+											<span class="tech">VB.Net</span>
+											<span class="tech">ASP.Net</span>
+											<span class="tech">Javascript</span>
+										</span>
+										<p>
+											ProTier was a New Orleans-based startup. Our initial focus was hosting desktop applications
+											(Microsoft Office, Quickbooks) for customers using thin clients. We realized that our real value
+											was the infrastructure automation we built on top of VMware to spin up capacity on-demand.
+											We pivoted to a virtualization automation company and were acquired by Surgient.
+										</p>
+									</li>
+									<li id="job_surgient">
+										<h4>Surgient</h4>
+										<span class="jobtags">
+											<span class="company">midsize</span>
+											<span class="role">developer</span>
+											<span class="tech">C#</span>
+											<span class="tech">C++</span>
+											<span class="tech">XML/XSLT</span>
+											<span class="tech">VMware</span>
+										</span>
+										<p>
+											Surgient massively expanded the orchestration work we started at ProTier. I started on
+											the UI side, but eventually spent time building our API, working on the data model,
+											designing our agent protocol, and building tools for bulk-editing virtual machine images.
+										</p>
+									</li>
+									<li id="job_hyper9">
+										<h4>Hyper9</h4>
+										<span class="jobtags">
+											<span class="company">startup</span>
+											<span class="role">developer</span>
+											<span class="tech">JQuery</span>
+											<span class="tech">Flex</span>
+											<span class="tech">Maven</span>
+										</span>
+										<p>
+											Hyper9 was a response to the unique problems of managing virtual environments. We
+											crawled virtual asset inventories in VMware and Hyper-V, then indexed that data in Lucene.
+											We built a suite of tools for search, alerting, reporting, and performance analysis. I led
+											design and construction of the UI; first as an HTML/XHR SPA, then in Flex.
+											Hyper9 was acquired by SolarWinds.
+										</p>
+									</li>
+									<li id="job_solarwinds">
+										<h4>SolarWinds</h4>
+										<span class="jobtags">
+											<span class="company">market leader</span>
+											<span class="role">developer</span>
+											<span class="role">designer</span>
+											<span class="tech">C#</span>
+											<span class="tech">Flex</span>
+											<span class="tech">Axure</span>
+											<span class="tech">Sketch</span>
+										</span>
+										<p>
+											I spent my first year here helping integrate Hyper9 into the SolarWinds product family.
+											I really enjoyed working with the UX team, and asked to move over. A week later, I had
+											made the jump from Tech Lead to Junior Designer. Nine years later, after leading design
+											on three new products and three major features, I left SolarWinds as a Principal Designer.
+										</p>
+									</li>
+									<li id="job_featurebase">
+										<h4>Featurebase</h4>
+										<span class="jobtags">
+											<span class="company">startup</span>
+											<span class="role">designer</span>
+											<span class="tech">Figma</span>
+											<span class="tech">Zeplin</span>
+											<span class="tech">design system</span>
+											<span class="tech">design ops</span>
+										</span>
+										<p>
+											Featurebase is a cloud data startup offering a unique database powered by bitmaps.
+											I came on to design the new SaaS UI. I also built out the bones of a design process
+											(ceremonies, tooling) and a research practice (processes and a core of friendly users).
+										</p>
+									</li>
+								</ul>
+								
 								<footer class="major">
 									<ul class="actions special">
 										<li><a href="generic.html" class="button">Download a PDF Resume</a></li>
@@ -115,51 +191,94 @@
 								</header>
 								<ul class="features">
 									<li>
-										<span class="icon solid major style1 fa-code"></span>
-										<h3>Ipsum consequat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+										<img src="images/teaser_featurebase.png" alt="" />
+										<h3>Featurebase</h3>
+										<p class="year">2022</p>
+										<p>
+											A SaaS interface for a high-performance bitmap database
+										</p>
 									</li>
 									<li>
-										<span class="icon major style3 fa-copy"></span>
-										<h3>Amed sed feugiat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+										<img src="images/teaser_dashboards.webp" alt="" />
+										<h3>Nova Dashboards</h3>
+										<p class="year">2019</p>
+										<p>
+											A general dashboarding framework for IT professionals
+										</p>
+									</li>
+									<li onclick="window.location='https://google.com'">
+										<img src="images/teaser_logman.webp" alt="" />
+										<h3>Log Manager</h3>
+										<p class="year">2018</p>
+										<p>
+											A log collection and analysis product
+										</p>
 									</li>
 									<li>
-										<span class="icon major style5 fa-gem"></span>
-										<h3>Dolor nullam</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+										<img src="images/teaser_perfstack.webp" alt="" />
+										<h3>Performance Analyzer</h3>
+										<p class="year">2016</p>
+										<p>
+											A tool for analyzing timeseries data
+										</p>
 									</li>
 									<li>
-										<span class="icon major style3 fa-copy"></span>
-										<h3>Amed sed feugiat</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
+										<img src="images/teaser_capacity.webp" alt="" />
+										<h3>Capacity Planner</h3>
+										<p class="year">2014</p>
+										<p>
+											A modeling tool for predicting VM resource usage
+										</p>
 									</li>
-									<li>
-										<span class="icon major style5 fa-gem"></span>
-										<h3>Dolor nullam</h3>
-										<p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed consequat.</p>
-									</li>
+
 								</ul>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
 							</section>
 
 						<!-- Get Started -->
 							<section id="fun" class="main special">
-								<header class="alt">
+								<header class="major">
 									<h2>Fun Stuff</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
 								</header>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button primary">Get Started</a></li>
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
+								<div class="spotlight" styl="column-gap: 50px;">
+									<img class="decoration" src="illus/lounge-man-analyst-at-coffee-break-in-the-office.png" alt="" />
+									<div class="content" style="margin-left: 50px; text-align: left;">
+										<div>
+											<h3>Hiking</h3>
+											<p>
+												I do quite a lot of hiking in the Texas hill country. I also try to do a destination hike each year.
+											</p>
+											<ul>
+												<li><a href="https://www.instagram.com/p/CRUy4MPLcMn/?utm_source=ig_web_copy_link">Forest Park in Portland</a></li>
+												<li><a href="https://www.instagram.com/p/BWxbEvvBzIq/?utm_source=ig_web_copy_link">Landmannalauger</a></li>
+												<li><a href="https://www.instagram.com/p/BaejzLCHfcE/?utm_source=ig_web_copy_link">East Coast Trail in St John's</a></li>
+												<li><a href="https://www.instagram.com/p/BfbxWxXH4Hw/?utm_source=ig_web_copy_link">Big Bend</a></li>
+												<li><a href="https://www.instagram.com/p/BpidKr8nZ_l/?utm_source=ig_web_copy_link">Rocky Mountain National Park</a></li>
+												<li><a href="https://www.instagram.com/p/BpidbKSnH7K/?utm_source=ig_web_copy_link">Bryce Canyon</a></li>
+											</ul>
+										</div>
+										<div>
+											<h3>Game Design</h3>
+											<p>
+												I make simple, bespoke games intended for small groups. You can think of them as a set of processes for having fun.
+											</p>
+											<ul>
+												<li><a href="">The Facility (print and play)</a></li>
+											</ul>
+										</div>
+										<div>
+											<h3>Reading</h3>
+											<p>
+												I read a bit, and keep a journal of my books on Goodreads.
+											</p>
+											<ul>
+												<li><a href="https://www.goodreads.com/review/list/34554197-joseph-breitreiter?shelf=favorites">All-time faves</a></li>
+												<li><a href="https://www.goodreads.com/review/list/34554197-joseph-breitreiter?shelf=design">Recent design books</a></li>
+												<li><a href="https://www.goodreads.com/review/list/34554197-joseph-breitreiter?shelf=business">Recent business books</a></li>
+												<li><a href="https://www.goodreads.com/review/list/34554197-joseph-breitreiter?shelf=philosophy">Recent philosophy books</a></li>
+											</ul>
+										</div>
+									</div>									
+								</div>
 							</section>
 
 					</div>
@@ -174,7 +293,7 @@
 							<h2>Contact me</h2>
 							<dl class="alt">
 								<dt>Phone</dt>
-								<dd>(000) 000-0000</dd>
+								<dd>(512) 296-4825</dd>
 								<dt>Email</dt>
 								<dd><a href="mailto:contact@dreamlands.org">contact@dreamlands.org</a></dd>
 							</dl>
@@ -183,7 +302,7 @@
 								<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
 							</ul>
 						</section>
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">&copy; Joseph Breitreiter</p>
 					</footer>
 
 			</div>
