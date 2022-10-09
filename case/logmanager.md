@@ -17,15 +17,13 @@ make sense of this flood of information.
 
 ## The Problems
 
-### Strong Competitors
-IT log management is a very crowded space. We
+**Strong Competitors** - IT log management is a very crowded space. We
 had to contend with Splunk (a $14B goliath), dozens of SaaS offerings,
 and ELK (a popular open-source solution). Platform vendors, like
 VMware, Red Hat, and Amazon have released their own log products
 with strong ties to their ecosystem.
 
-### Legacy Limitations
-A traditional log research product would be based
+**Legacy Limitations** - A traditional log research product would be based
 on an inverted-index store of some sort, like Lucene or Elastic. However,
 following a recent debacle with another product, we could not introduce
 new software requirements for a product on our platform. That meant
