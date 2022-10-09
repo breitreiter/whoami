@@ -4,8 +4,8 @@ title: Nova Dashboards
 subtitle: Dashboard system redesign
 layout: default
 ---
-My Role: Concept, Design 
-Lifecycle: New framework
+**My Role:** Concept, Design  
+**Lifecycle:** New framework
 
 Nova dashboards is a framework developed to replace SolarWinds legacy dashboards. Construction was halted after the discovery of the Sunburst attack and the subsequent re-allocation of engineering to securing the build pipeline and auditing existing code.
 
@@ -19,7 +19,9 @@ Nova dashboards is a framework developed to replace SolarWinds legacy dashboards
 ## Our Responses
 ![Example dashboard screenshot](../images/dashboard_screen.png)
 
-Widget Shapes We performed an inventory of our 400+ legacy widgets and normalized them into six basic types:
+### Widget Shapes
+
+We performed an inventory of our 400+ legacy widgets and normalized them into six basic types:
 
 KPI widgets deliver a single, high-impact value. A practitioner should be able to immediately reason about the implications of the value with no further evidence or explanation.
 
@@ -33,7 +35,7 @@ All users (including SolarWinds developers and community content creators) use t
 
 If a user composes a particularly useful dashboard or widget, they can share it with the larger community and join the ranks of content creators. SolarWinds marketing, and product management can respond to emerging competitive threats by rapidly creating and delivering new dashboards. Sales engineers can create a bespoke dashboard to tell a story about how we solve a difficult customer problem.
 
-## An Agnostic Builder
+### An Agnostic Builder
 The built-in editor has a clear separation between the task of defining a data model and configuring presentation.
 
 A data model includes instructions for querying a particular API, retrieving a set of data, and normalizing that data. Individual API providers must supply tailored screens which plug into the widget configuration process. The API plugin gathers any data needed to perform the query and formats the output into something usable by our dashboard system.
