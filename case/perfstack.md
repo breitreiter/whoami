@@ -15,8 +15,7 @@ for the company’s aging custom chart feature.
 
 ## The Problems
 
-### Data Sprawl 
-SolarWinds monitors thousands of metrics across 28
+**Data Sprawl** - SolarWinds monitors thousands of metrics across 28
 on-premises products. This data was available through hundreds of
 purpose-built dashboard widgets spread across dozens of dashboards.
 Task Complexity - Creating and customizing SolarWinds dashboards is a
@@ -24,8 +23,7 @@ complex, time-consuming task which requires administrative privileges.
 Many customers have specialists who build and maintain these
 dashboards.
 
-### Performance
-Over the life of the company, SolarWinds dashboards
+**Performance** - Over the life of the company, SolarWinds dashboards
 have incrementally accumulated features. It is not uncommon for a
 dashboard to have more than twenty widgets and require 5-10 seconds
 to load.
