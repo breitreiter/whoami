@@ -1,7 +1,7 @@
 ---
-id: nova-dashboards
-title: Nova Dashboards
-subtitle: Dashboard system redesign
+id: perfstack
+title: Performance Analyzer
+subtitle: Performance analysis feature
 layout: default
 ---
 **My Role:** Concept, Design  
