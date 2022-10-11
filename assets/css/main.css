@@ -2843,7 +2843,7 @@ img.decoration {
 				border-radius: 100%; 
 				width: 200px; 
 				height: 200px; 
-				border: solid 6px #eee;
+				border: solid 5px #eee;
 				-webkit-transform: scale(1);
 				transform: scale(1);
 				-webkit-transition: .2s ease-in-out;
@@ -2851,8 +2851,9 @@ img.decoration {
 			}
 
 			.features img:hover {
-				-webkit-transform: scale(1.15);
-				transform: scale(1.15);
+				-webkit-transform: scale(1.1);
+				transform: scale(1.1);
+				border-color: #BFB8D3;
 			}
 
 			.features h3 {
