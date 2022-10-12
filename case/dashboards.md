@@ -23,13 +23,10 @@ Nova dashboards is a framework developed to replace SolarWinds legacy dashboards
 
 We performed an inventory of our 400+ legacy widgets and normalized them into six basic types:
 
-KPI widgets deliver a single, high-impact value. A practitioner should be able to immediately reason about the implications of the value with no further evidence or explanation.
-
-Timeseries widgets display measurements over time. The practitioner should be able to zoom in and out to analyze unexpected values or locate larger trends.
-
-Proportional widgets use a donut, pie chart, or bar chart to divide a set of objects into multiple groups and compare the sizes of those groups. Table widgets are a familiar way to organize lists of objects along with key properties of those objects.
-
-Map widgets display user-created topology maps, a popular way for practitioners to reason about the structure of their environment. Inventory widgets allow users to locate monitored devices, either by search or by browsing a relationship graph. Each widget shape is a block of code. The shapes can be extensively customized to support a wide variety of business needs. Everything is Content
+- KPI widgets deliver a single, high-impact value. A practitioner should be able to immediately reason about the implications of the value with no further evidence or explanation.
+- Timeseries widgets display measurements over time. The practitioner should be able to zoom in and out to analyze unexpected values or locate larger trends.
+- Proportional widgets use a donut, pie chart, or bar chart to divide a set of objects into multiple groups and compare the sizes of those groups. Table widgets are a familiar way to organize lists of objects along with key properties of those objects.
+- Map widgets display user-created topology maps, a popular way for practitioners to reason about the structure of their environment. Inventory widgets allow users to locate monitored devices, either by search or by browsing a relationship graph. Each widget shape is a block of code. The shapes can be extensively customized to support a wide variety of business needs. Everything is Content
 
 All users (including SolarWinds developers and community content creators) use the same built-in editor to create dashboards and define widgets. This means any user can inspect a widget to learn how it works and then copy and remix it.
 
