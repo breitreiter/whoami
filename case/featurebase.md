@@ -4,7 +4,7 @@ title: Featurebase
 subtitle: New UI for novel database
 layout: default
 ---
-**My Role:** Design Leader
+**My Role:** Design Leader  
 **Lifecycle:** New product, new practice
 
 <a href="../images/featurebase_query.png">![FeatureBase query editor](../images/featurebase_query.png)</a>
