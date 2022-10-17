@@ -7,7 +7,7 @@ layout: default
 **My Role:** Design Leader
 **Lifecycle:** New product, new practice
 
-![FeatureBase query editor](../images/featurebase_query.png)
+<a href="../images/featurebase_query.png">![FeatureBase query editor](../images/featurebase_query.png)</a>
 
 FeatureBase develops a high-performance database built on bitmaps. I joined as the first designer with the mandate to establish a design practice and design the company’s commercial product.
 
@@ -51,7 +51,7 @@ As a designer, it’s always fun to think of new ways to solve problems with cle
 
 ### Outcome
 
-![FeatureBase source detail dashboard](../images/featurebase_source.png)
+<a href="../images/featurebase_source.png">![FeatureBase source detail dashboard](../images/featurebase_source.png)</a>
 
 FeatureBase remains an ongoing project. After some initial missteps and over-corrections, our process is now running smoothly. Engineers have developed an intuitive sense of when it’s necessary to seek mockups and when they can just rely on the design system. We’re still learning to 
 
@@ -59,7 +59,7 @@ I run weekly usability tests with users sourced from Respondent. While we are al
 
 ## One Detail
 
-![Configuration required empty state](../images/featurebase_additem.png)
+<a href="../images/featurebase_additem.png">![Configuration required empty state](../images/featurebase_additem.png)</a>
 
 As a designer, you often have space blocked out for a table or datagrid or chart, but at runtime there is no data to fill it. The worst option, of course, is to just leave the space ambiguously empty. The best option is to attempt to diagnose the problem and offer tailored remediation advice.
 
@@ -71,7 +71,7 @@ Excluded by Filter: if a control can be filtered or the time frame can be change
 Access Denied: we keep this message sparse to avoid leaking details of our security model. We encourage the user to contact their administrator for help.
 Unexpected Error: sometimes it’s just a 500. We try to be a bit humble, own the error, and offer a button to contact our support.
 
-![Error message empty state](../images/featurebase_erroritem.png)
+<a href="../images/featurebase_erroritem.png">![Error message empty state](../images/featurebase_erroritem.png)</a>
 
 There are two versions of this control; a roomy version for full-screens and a compact version for panels and dialogs.
 
