@@ -64,12 +64,12 @@ I run weekly usability tests with users sourced from Respondent. While we are al
 As a designer, you often have space blocked out for a table or datagrid or chart, but at runtime there is no data to fill it. The worst option, of course, is to just leave the space ambiguously empty. The best option is to attempt to diagnose the problem and offer tailored remediation advice.
 
 I opted for a middle ground: whenever we would show an empty control, we would instead fill the content area with one of six classes of message:
-Good: in some cases (like alerts or faults) no news is good news. In this case we show an encouraging message.
-Configuration Required and Encouraged: a very typical situation for a new user. We want to show something, but the user needs to perform some action first. We guide the user to perform the necessary actions. We show this state for steps that are in the critical path for new user success.
-Configuration Required but Optional: similar to the previous, but users can come back to these items later. Relaxed language, less prominent CTA.
-Excluded by Filter: if a control can be filtered or the time frame can be changed, it’s possible to exclude all data. We encourage the user to adjust their filters so we can show what data we do have.
-Access Denied: we keep this message sparse to avoid leaking details of our security model. We encourage the user to contact their administrator for help.
-Unexpected Error: sometimes it’s just a 500. We try to be a bit humble, own the error, and offer a button to contact our support.
+- Good: in some cases (like alerts or faults) no news is good news. In this case we show an encouraging message.
+- Configuration Required and Encouraged: a very typical situation for a new user. We want to show something, but the user needs to perform some action first. We guide the user to perform the necessary actions. We show this state for steps that are in the critical path for new user success.
+- Configuration Required but Optional: similar to the previous, but users can come back to these items later. Relaxed language, less prominent CTA.
+- Excluded by Filter: if a control can be filtered or the time frame can be changed, it’s possible to exclude all data. We encourage the user to adjust their filters so we can show what data we do have.
+- Access Denied: we keep this message sparse to avoid leaking details of our security model. We encourage the user to contact their administrator for help.
+- Unexpected Error: sometimes it’s just a 500. We try to be a bit humble, own the error, and offer a button to contact our support.
 
 <a href="../images/featurebase_erroritem.png">![Error message empty state](../images/featurebase_erroritem.png)</a>
 
