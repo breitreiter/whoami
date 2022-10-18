@@ -30,7 +30,7 @@ to load.
 
 ## Our Responses
 
-![The Performance Analyzer chart tableau](../images/perfstack_tableau.png)
+<a href="../images/perfstack_tableau.png">![The Performance Analyzer chart tableau](../images/perfstack_tableau.png)</a>
 
 ### Data Consolidation
 Performance Analyzer pulls together nearly all time-oriented data
@@ -85,7 +85,7 @@ accurate, quick answers.
 
 ## Outcome
 
-![Performance Analyzer in Times Square](../images/perfstack_times_square.png)
+<a href="../images/perfstack_times_square.png">![Performance Analyzer in Times Square](../images/perfstack_times_square.png)</a>
 
 While not as immediately recognizable as the classic SolarWinds
 dashboard, the Performance Analyzer has become a key part of the
