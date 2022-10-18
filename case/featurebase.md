@@ -1,21 +1,21 @@
 ---
 id: featurebase
 title: Featurebase
-subtitle: New UI for novel database
+subtitle: New UI for a novel database
 layout: default
 ---
 **My Role:** Design Leader  
 **Lifecycle:** New product, new practice
 
-<a href="../images/featurebase_query.png">![FeatureBase query editor](../images/featurebase_query.png)</a>
-
 FeatureBase develops a high-performance database built on bitmaps. I joined as the first designer with the mandate to establish a design practice and design the company’s commercial product.
+
+<a href="../images/featurebase_query.png">![FeatureBase query editor](../images/featurebase_query.png)</a>
 
 ## The Problem
 
-High Table Stakes - As a new entrant in a mature space, users were evaluating FeatureBase against products with a very rich feature set. We could not hope to replicate those features with our team and time horizon. But we still needed a broad foundation of core features to be taken seriously as a competitor.
+**High Table Stakes** - As a new entrant in a mature space, users were evaluating FeatureBase against products with a very rich feature set. We could not hope to replicate those features with our team and time horizon. But we still needed a broad foundation of core features to be taken seriously as a competitor.
 
-No UX Practice - FeatureBase is a very technically complex product and the engineering team was heavily balanced toward deep backend work. Developers were accustomed to thinking of the UI as a simple, browser-based interface to the API. When I came onboard, many developers expected my role would be constrained to establishing visual guidelines.
+**Flying Solo** - I was the first designer at FeatureBase, and much of my time would be devoted to foundational design work, defining strategy, performing user research, and running design thinking exercises. I would need to look for force multipliers to stay on top of routine interaction design work.
 
 ## My Reponses
 
