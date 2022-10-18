@@ -31,7 +31,7 @@ we had to make do with Microsoft SQL Server.
 
 ## Our Responses
 
-![The Log Manager research screen](../images/log_search.png)
+<a href="../images/log_search.png">![The Log Manager research screen](../images/log_search.png)</a>
 
 ### Target the End User
 Before we started design, we ran several weeks of interviews with our
@@ -76,7 +76,7 @@ Manager smarter.
 
 ## Outcome
 
-![Guidance for populating a custom policy](../images/log_rules.png)
+<a href="../images/log_rules.png">![Guidance for populating a custom policy](../images/log_rules.png)</a>
 
 Log Manager has performed well with our existing customers. We’ve
 released our first “rule pack, “ with two more in development right now.
@@ -93,7 +93,7 @@ revenue stream in the coming years.
 
 ## One Detail
 
-![Editing a rule](../images/log_rule_builder.png)
+<a href="../images/log_rule_builder.png">![Editing a rule](../images/log_rule_builder.png)</a>
 
 When we did the research for the product, many users expressed a desire
 to connect log traffic to alerts. In many cases, a particular event may be
@@ -115,7 +115,7 @@ in those conversations, I created and user-tested wireframes for creating
 event alerts. Ultimately, we ended up using a little-known feature
 intended for alerting on change events.
 
-![Editing an Orion alert](../images/log_orion_alerting.png)
+<a href="../images/log_orion_alerting.png">![Editing an Orion alert](../images/log_orion_alerting.png)</a>
 
 Good news: this solution could be constructed in a reasonable time
 frame with little risk. Bad news: the integration was buried in an obscure
