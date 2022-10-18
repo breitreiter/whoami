@@ -53,15 +53,15 @@ As a designer, it’s always fun to think of new ways to solve problems with cle
 
 <a href="../images/featurebase_source.png">![FeatureBase source detail dashboard](../images/featurebase_source.png)</a>
 
-FeatureBase remains an ongoing project. After some initial missteps and over-corrections, our process is now running smoothly. Engineers have developed an intuitive sense of when it’s necessary to seek mockups and when they can just rely on the design system. We’re still learning to 
+FeatureBase remains an ongoing project. After some initial missteps and over-corrections, our process is now running smoothly. Engineers have developed an better sense of when it’s necessary to seek mockups and when they can just rely on the guidance in the design system. 
 
-I run weekly usability tests with users sourced from Respondent. While we are always learning new things and finding areas of improvement, nearly every participant comments on how “clean” and “streamlined” our interface is.
+We're still negotiating small details. Sometimes non-compliant work makes it into the product. Sometimes engineers are frustrated with having to wait for design to go through the process for a new screen. But I believe we will settle into a functional routine given time.
 
 ## One Detail
 
-<a href="../images/featurebase_additem.png">![Configuration required empty state](../images/featurebase_additem.png)</a>
-
 As a designer, you often have space blocked out for a table or datagrid or chart, but at runtime there is no data to fill it. The worst option, of course, is to just leave the space ambiguously empty. The best option is to attempt to diagnose the problem and offer tailored remediation advice.
+
+<a href="../images/featurebase_additem.png">![Configuration required empty state](../images/featurebase_additem.png)</a>
 
 I opted for a middle ground: whenever we would show an empty control, we would instead fill the content area with one of six classes of message:
 - Good: in some cases (like alerts or faults) no news is good news. In this case we show an encouraging message.
