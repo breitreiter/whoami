@@ -42,7 +42,6 @@ I initially held weekly meetings to bless new designs. However, this was not ide
 ### Leveraging Libraries
 
 Over the last year I’ve become very familiar with Google’s Material UI library, the CodeMirror editor component, and Nivo charting. Much of the Logic design system simply encodes:
-
 - This is how we compose a set of third-party components into a screen
 - Here are the configuration options we use for each component, depending on the semantic context
 - These are components and features we have intentionally chosen not to use
@@ -64,12 +63,12 @@ As a designer, you often have space blocked out for a table or datagrid or chart
 <a href="../images/featurebase_additem.png">![Configuration required empty state](../images/featurebase_additem.png)</a>
 
 I opted for a middle ground: whenever we would show an empty control, we would instead fill the content area with one of six classes of message:
-- Good: in some cases (like alerts or faults) no news is good news. In this case we show an encouraging message.
-- Configuration Required and Encouraged: a very typical situation for a new user. We want to show something, but the user needs to perform some action first. We guide the user to perform the necessary actions. We show this state for steps that are in the critical path for new user success.
-- Configuration Required but Optional: similar to the previous, but users can come back to these items later. Relaxed language, less prominent CTA.
-- Excluded by Filter: if a control can be filtered or the time frame can be changed, it’s possible to exclude all data. We encourage the user to adjust their filters so we can show what data we do have.
-- Access Denied: we keep this message sparse to avoid leaking details of our security model. We encourage the user to contact their administrator for help.
-- Unexpected Error: sometimes it’s just a 500. We try to be a bit humble, own the error, and offer a button to contact our support.
+- **Good, Actually:** in some cases (like alerts or faults) no news is good news. In this case we show an encouraging message.
+- **Configuration Required and Encouraged:** a very typical situation for a new user. We want to show something, but the user needs to perform some action first. We guide the user to perform the necessary actions. We show this state for steps that are in the critical path for new user success.
+- **Configuration Required but Optional:** similar to the previous, but users can come back to these items later. Relaxed language, less prominent CTA.
+- **Excluded by Filter:** if a control can be filtered or the time frame can be changed, it’s possible to exclude all data. We encourage the user to adjust their filters so we can show what data we do have.
+- **Access Denied:** we keep this message sparse to avoid leaking details of our security model. We encourage the user to contact their administrator for help.
+- **Unexpected Error:** sometimes it’s just a 500. We try to be a bit humble, own the error, and offer a button to contact our support.
 
 <a href="../images/featurebase_erroritem.png">![Error message empty state](../images/featurebase_erroritem.png)</a>
 
