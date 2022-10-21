@@ -53,7 +53,7 @@ As a designer, it’s always fun to think of new ways to solve problems with cle
 
 <a href="../images/featurebase_source.png">![FeatureBase source detail dashboard](../images/featurebase_source.png)</a>
 
-FeatureBase remains an ongoing project. After some initial missteps and over-corrections, our process is now running smoothly. Engineers have developed an better sense of when it’s necessary to seek mockups and when they can just rely on the guidance in the design system. 
+FeatureBase remains an ongoing project. After some initial missteps and over-corrections, our process is now running smoothly. Engineers have developed a good sense of when it’s necessary to seek mockups and when they can just rely on the guidance in the design system. 
 
 We're still negotiating small details. Sometimes non-compliant work makes it into the product. Sometimes engineers are frustrated with having to wait for design to go through the process for a new screen. But I believe we will settle into a functional routine given time.
 
