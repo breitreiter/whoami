@@ -69,6 +69,7 @@ input, select, textarea {
 img.decoration {
 	width: 35%;
 	height: auto;
+	opacity: 80%;
 }
 @media screen and (max-width: 736px) {
 
