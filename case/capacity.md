@@ -97,8 +97,6 @@ over the content of the reports.
 
 ## One Detail
 
-![List of task options for a planning session](../images/capacity_task.png)
-
 When talking with our existing customers and sales engineers, we heard three very common complaints:
 - There were too many options and users weren’t sure where to start.
 - It wasn’t clear which subset of features were necessary to model out a particular scenario.
@@ -108,6 +106,8 @@ I believed all three of these could be addressed by adding an extra step to the 
 - The user is presented with a  simple, concrete choice expressed in the language of the problem they’re here to solve.
 - The user’s choice on this screen determines which features we reveal during the wizard. If the user is not simulating additional host computers, we can skip that entire modeling task.
 - The screen educates the user on the purpose and breadth of the feature.
+
+![List of task options for a planning session](../images/capacity_task.png)
 
 The screen is mostly just text. No infographics. No embedded video. No cool interactions.
 
