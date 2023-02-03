@@ -7,7 +7,7 @@ layout: default
 **My Role:** Design Leader  
 **Lifecycle:** New product, new practice
 
-FeatureBase is an open-source database built on bitmaps. I joined as the first designer with the mandate to establish a design practice and design the company’s commercial product.
+[FeatureBase](https://github.com/featurebasedb/featurebase) is a high-performance, open-source database built on bitmaps. I joined as the first designer with the mandate to establish a design practice and design the company’s commercial product.
 
 <a href="../images/featurebase_query.png">![FeatureBase query editor](../images/featurebase_query.png)</a>
 
