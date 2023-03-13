@@ -3903,6 +3903,10 @@ img.decoration {
 		margin: 0 auto;
 	}
 
+	#wrapper.casestudy {
+		width: 48em;
+	}
+
 		@media screen and (max-width: 480px) {
 
 			#wrapper {
