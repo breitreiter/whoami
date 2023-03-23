@@ -4,8 +4,12 @@ title: Featurebase
 subtitle: New UI for a novel database
 layout: default
 ---
-**My Role:** Design Leader  
-**Lifecycle:** New product, new practice
+**My role:** Design leader  
+**Lifecycle:** New product, new practice  
+**Team size:** 10  
+**Industry:** Cloud data  
+**Task:** Design a SaaS interface for a specialty database engine  
+**Outcome:** Ongoing, first release delivered to production within three months
 
 [FeatureBase](https://github.com/featurebasedb/featurebase) is a high-performance, open-source database built on bitmaps. I joined as the first designer with the mandate to establish a design practice and design the company’s commercial product.
 
