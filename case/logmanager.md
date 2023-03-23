@@ -19,6 +19,8 @@ reporting task completion, and occasionally reporting errors or failures.
 We believed there was an opportunity for a new product to help users
 make sense of this flood of information.
 
+<a href="../images/log_search.png">![The Log Manager research screen](../images/log_search.png)</a>
+
 ## The Problems
 
 **Strong Competitors** - IT log management is a very crowded space. We
@@ -34,8 +36,6 @@ new software requirements for a product on our platform. That meant
 we had to make do with Microsoft SQL Server.
 
 ## Our Responses
-
-<a href="../images/log_search.png">![The Log Manager research screen](../images/log_search.png)</a>
 
 ### Target the End User
 Before we started design, we ran several weeks of interviews with our
