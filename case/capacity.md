@@ -4,8 +4,12 @@ title: Capacity Planner
 subtitle: Feature for SolarWinds Virtualization Manager
 layout: default
 ---
-**My Role:** Design  
-**Lifecycle:** Redesign of a legacy feature
+**My role:** Design lead  
+**Lifecycle:** New product, new practice  
+**Team size:** 18  
+**Industry:** Virtualization/observability  
+**Task:** Redesign a complex legacy feature  
+**Outcome:** Increased feature adoption, increased task success during testing
 
 The capacity planner is a long-standing feature of the SolarWinds 
 Virtualization Manager product. It helps virtualization administrators 
