@@ -13,6 +13,8 @@ layout: default
 
 Nova dashboards is a framework developed to replace SolarWinds legacy dashboards. Construction was halted after the discovery of the Sunburst attack and the subsequent re-allocation of engineering to securing the build pipeline and auditing existing code.
 
+<a href="../images/dashboard_screen.png">![Example dashboard screenshot](../images/dashboard_screen.png)</a>
+
 ## The Problems
 **Maintainability** - The legacy dashboard system implemented each widget as a distinct bundle of code, packaged and distributed with a related product. This meant widgets were difficult to normalize, difficult to re-style, and difficult to fix.
 
@@ -21,8 +23,6 @@ Nova dashboards is a framework developed to replace SolarWinds legacy dashboards
 **API Proliferation** - Traditionally, the SWIS data API was the only approved way to access our data. Due to acquisitions and new purpose-built APIs, the dashboard system needed to support querying and presenting data from many sources.
 
 ## Our Responses
-
-<a href="../images/dashboard_screen.png">![Example dashboard screenshot](../images/dashboard_screen.png)</a>
 
 ### Widget Shapes
 
