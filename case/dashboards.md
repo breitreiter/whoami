@@ -4,8 +4,12 @@ title: Nova Dashboards
 subtitle: Dashboard system redesign
 layout: default
 ---
-**My Role:** Concept, Design  
-**Lifecycle:** New framework
+**My role:** Concept, design lead  
+**Lifecycle:** Redesign of a legacy feature  
+**Team size:** 23  
+**Industry:** IT observability  
+**Task:** Redesign the dashboarding framework for all SolarWinds products  
+**Outcome:** In production, development halted due to Sunburst incident
 
 Nova dashboards is a framework developed to replace SolarWinds legacy dashboards. Construction was halted after the discovery of the Sunburst attack and the subsequent re-allocation of engineering to securing the build pipeline and auditing existing code.
 
