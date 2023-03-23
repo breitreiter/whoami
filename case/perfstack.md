@@ -4,8 +4,12 @@ title: Performance Analyzer
 subtitle: Performance analysis feature
 layout: default
 ---
-**My Role:** Concept, Design  
-**Lifecycle:** New feature for an existing product
+**My role:** Concept, design lead  
+**Lifecycle:** New feature  
+**Team size:** 5  
+**Industry:** IT observability  
+**Task:** Design a tool to enable rapid troubleshooting research  
+**Outcome:** Broad adoption, now a core part of the SolarWinds troubleshooting story
 
 SolarWinds Performance Analyzer (also branded as PerfStack) is a visualization 
 and research tool for IT administrators working in complex,
