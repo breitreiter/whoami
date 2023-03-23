@@ -17,6 +17,8 @@ software-defined datacenters. It was conceived as a tool for helping
 users correlate and visualize time series data. It was pitched as a refresh
 for the company’s aging custom chart feature.
 
+<a href="../images/perfstack_tableau.png">![The Performance Analyzer chart tableau](../images/perfstack_tableau.png)</a>
+
 ## The Problems
 
 **Data Sprawl** - SolarWinds monitors thousands of metrics across 28
@@ -33,8 +35,6 @@ dashboard to have more than twenty widgets and require 5-10 seconds
 to load.
 
 ## Our Responses
-
-<a href="../images/perfstack_tableau.png">![The Performance Analyzer chart tableau](../images/perfstack_tableau.png)</a>
 
 ### Data Consolidation
 Performance Analyzer pulls together nearly all time-oriented data
