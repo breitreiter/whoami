@@ -4,8 +4,12 @@ title: Log Manager
 subtitle: The Log Manager product
 layout: default
 ---
-**My Role:** Design  
-**Lifecycle:** New product
+**My role:** Design lead  
+**Lifecycle:** New product  
+**Team size:** 8  
+**Industry:** IT observability  
+**Task:** Design a logging product with broad capabilities but a small resource footprint  
+**Outcome:** The free version is now bundled by default with core SolarWinds products
 
 SolarWinds Log Manager is a research tool for machine-generated
 messages. IT administrators are responsible for maintaining servers,
