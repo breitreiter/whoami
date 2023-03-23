@@ -17,6 +17,8 @@ plan the growth of their environments using statistical modeling of
 historic load. The feature had become incredibly complex, difficult to 
 understand, and nearly impossible to demonstrate on sales calls. 
 
+![A capacity planning report](../images/capacity_report.png)
+
 ## The Problems
 
 **Extensive Feature Set** - The capacity planner was developed as a side project 
@@ -34,8 +36,6 @@ part of an annual infrastructure budgeting process. Each time, the user must
 locate and learn the feature.
 
 ## Our Responses
-
-![A capacity planning report](../images/capacity_report.png)
 
 ### Catalog and  Cut
 
