@@ -55,16 +55,16 @@ with these systems without formal ML training.
 **The Market is Fragmented and Complex** - You only need to scan the [MAD landscape](https://mad.firstmark.com/) to 
 understand the bewildering array of options available to teams who are building a machine 
 learning stack for production. This is made more complex by competing preferences among data 
-scientists; a common reason cited for switching jobs was the desire to work with a better 
-software stack. This leaves data engineers struggling to connect legacy data systems, 
-production software systems, and data science tools.
+scientists; [a common reason cited for switching jobs](https://towardsdatascience.com/why-data-scientists-and-engineers-quit-their-jobs-afc2350eef9a)
+was the desire to work with a better software stack. This leaves data engineers struggling
+to connect legacy data systems, production software systems, and data science tools.
 
 **Talent is Difficult to Source** - While my two-week crash course in ML equipped me to speak 
 intelligibly about the work done by ML professionals, actually doing the work requires a deep 
-understanding of the foundational math, broad knowledge of the comparative strengths of 
-different algorithms, and constant learning to keep up with the latest academic research. 
-Further, as executives come to realize the potential of ML systems, data scientists are in 
-high demand; especially those who have experience working with production systems.
+technical skillset. The current structure of ML work requires specialists who can create highly
+customized solutions, informed by a field which is changing constantly.
+Between the high demand for AI projects in digital transformation and the relative novelty of
+the field [data scientists are difficult to source](https://www.forbes.com/sites/forbestechcouncil/2022/10/11/the-data-science-talent-gap-why-it-exists-and-what-businesses-can-do-about-it/)
 
 **Software Engineers are Underserved** - AI/ML systems are increasingly becoming a key part of 
 business-critical software systems, and these new capabilities come with new risks. Teams which 
@@ -75,12 +75,17 @@ and must rely on the data team to understand and mitigate operational risks.
 
 ## Building the Visiontype
 
+I walked through a short [lean canvas](https://leanstack.com/lean-canvas/) exercise to identify
+where we might compete in a crowded marketplace. I believed an integrative, collaboration-centered
+ML development hub could align AI/ML work with existing processes (agile, devops, observability)
+which have made software teams so successful.
+
 **Bringing in Everyone** - Not surprisingly, I was not the only person at the company with an
 eye on AI/ML. I set up a series of meetings with key thinkers in the organization to understand
 how they were thinking about our future. I learned that our developer relations manager was
 working with LLMs to automate support, our VP of engineering  was investigating training and
 deploying models in SQL and UDFs, and that one of our SEs had been researching data catalogs
-for storing training sets. It was important to me that we could ground the visiontype in
+for storing model training data. It was important to me that we could ground the visiontype in
 actual work that was happening now.
 
 **Identifying Key Features** - I wanted to help bring software engineers into the process and
