@@ -27,7 +27,7 @@ changing, and built on deep mathematical fundamentals. After a few false starts,
 [Jeremy Howard’s course](https://course.fast.ai/) and spent two straight weeks watching videos, 
 spinning up colab notebooks, and back-filling my shaky linear algebra knowledge with 
 [Josh Starmer](https://www.youtube.com/c/joshstarmer) and [Grant Sanderson’s](https://www.youtube.com/@3blue1brown)
-excellent videos
+excellent videos.
 
 **Market Research** - Once I had a handle on the core concepts, user tasks, and terminology, I 
 could start making sense of the market landscape. Not surprisingly, my first stop was Gartner; 
@@ -81,7 +81,7 @@ ML development hub could align AI/ML work with existing processes (agile, devops
 which have made software teams so successful.
 
 **Bringing in Everyone** - Not surprisingly, I was not the only person at the company with an
-eye on AI/ML. I set up a series of meetings with key thinkers in the organization to understand
+eye on AI/ML. I set up a series of meetings with key stakeholders in the organization to understand
 how they were thinking about our future. I learned that our developer relations manager was
 working with LLMs to automate support, our VP of engineering  was investigating training and
 deploying models in SQL and UDFs, and that one of our SEs had been researching data catalogs
@@ -92,20 +92,24 @@ actual work that was happening now.
 integrate model training and inference into their normal software development practices. To this
 end, I identified three key features:
 - A consolidated data catalog. This would allow data engineers, analysts, and data scientists
-to normalize datasets across projects. The data team could control access to ensure data integrity
-and adherence to regulatory requirements. Engineers could trace the lineage of data to learn how
-it's being cleaned and enriched.
-- Github-backed data projects. This would normalize data work into something that could be 
-integrated into existing CI/CD workflows. It would also allow team members to fork repositories
-and perform experiments without adding new, persistent objects (stored procedures, UDFs) to a
-shared database. Finally, including an integrated, multi-user IDE ([Monaco](https://github.com/microsoft/monaco-editor)
-with [monaco-collab](https://github.com/convergencelabs/monaco-collab-ext) for instance) would
-allow engineers to directly collaborate with the data team without the need for either to set
-up a special local development environment.
-- Coding assistance for unfamiliar frameworks. Not everyone will know the peculiarities of the
-many libraries and frameworks in the modern data stack. I believe we could use LLMs (in the
-fashion of CodePilot) to help engineers and data scientists ramp up on new frameworks and write
-correct, idiomatic code quickly.
+to normalize datasets across projects. For my core audience (engineers) this means they could 
+trace the lineage of data to learn how it's being cleaned, transformed, and enriched.
+- Github-backed data projects. Software engineers are accustomed to working in projects 
+(named collections of code and configuration artifacts that collectively solve a problem).
+They have processes and tools (including [CI/CD automation](https://about.gitlab.com/topics/ci-cd/)) 
+which leverage the functional isolation provided by projects to manage change risks. I wanted
+to bring this practice into the product, but without requiring data folks to set up complex
+development environments. I believed an integrated, multi-user IDE 
+([Monaco](https://github.com/microsoft/monaco-editor) with 
+[monaco-collab](https://github.com/convergencelabs/monaco-collab-ext) for instance) would
+streamline adoption and simplify evaluation.
+- Coding assistance for unfamiliar frameworks. A common hurdle to adopting good ops practice
+is the difficulty of learning a new framework or tool. This is especially true for code frameworks,
+where an engineer must often spend considerable time cross-checking API documentation. I believed
+we could use a [fine-tuned language model](https://the-decoder.com/fine-tuning-with-instructions-google-brain-improves-large-language-models/)
+to generate framework-appropriate code snippets for user-supplied tasks. Language models have also
+proven adept at summarizing and explaining code, which would be useful to engineers and data 
+scientists who are hunting down data quality or preparation logic errors.
 
 **Creating a Story** - I anticipated I would be called on to present the visiontypes in front
 of audiences will different degrees of ML expertise. I decided to tell the story of a data engineer
@@ -117,6 +121,14 @@ the data scientist's project into a versioned API. Our engineer wants to go back
 quality, and the UI helps them author some robust tests using an unfamiliar data framework ([dbt](https://www.getdbt.com/)).
 
 The story demonstrates a consistent way of organizing work from the initial data load to the final
-integration with production systems. It empowers software engineers to understand the complete flow
-of data and ensure the quality of the entire system. All without having to learn dozens of new tools
-or very much linear algebra.
+integration with production systems. Critically, it does so at a process and workflow level, which
+means:
+- Minimal impact to existing vendor relationships
+- Broad compatibility with existing data and dev architecture
+- Ability to adopt/trial new frameworks and algorithms. 
+
+The swift proliferation of new ML technologies, products, and vendors can be overwhelming. Many
+organizations will choose a single, comprehensive platform like Sagemaker or Vertex. However,
+for those organizations pursuing a best-of-breed approach, a smart, unifying development platform
+can bridge some of the gaps between disparate technologies.
+can be overwhelming, 
