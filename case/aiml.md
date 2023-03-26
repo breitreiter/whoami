@@ -131,4 +131,3 @@ The swift proliferation of new ML technologies, products, and vendors can be ove
 organizations will choose a single, comprehensive platform like Sagemaker or Vertex. However,
 for those organizations pursuing a best-of-breed approach, a smart, unifying development platform
 can bridge some of the gaps between disparate technologies.
-can be overwhelming, 
