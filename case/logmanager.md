@@ -133,7 +133,7 @@ alert to operate.
 
 <a href="../images/log_alert_integration.png">![Alert creation embedded in logging](../images/log_alert_integration.png)</a>
 
-For most users, this produced their expected outcome - and alert that
+For most users, this produced their expected outcome - an alert that
 triggered when a particular log entry was received. Because we still
-constructed a normal alert, advanced users could still get into the gnarly
+constructed a normal alert, advanced users could get into the gnarly
 details.
