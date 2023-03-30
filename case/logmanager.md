@@ -131,6 +131,8 @@ Log Manager UI. This allowed users to create complex alerts using the
 current screen context to populate the complex queries required for the
 alert to operate.
 
+<a href="../images/log_alert_integration.png">![Alert creation embedded in logging](../images/log_alert_integration.png)</a>
+
 For most users, this produced their expected outcome - and alert that
 triggered when a particular log entry was received. Because we still
 constructed a normal alert, advanced users could still get into the gnarly
