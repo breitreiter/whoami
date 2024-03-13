@@ -43,6 +43,33 @@
     </style>
 
     <script>
+        // Setup Faro instrumentation
+        (function () {
+            // Create a script tag for loading the library
+            var script = document.createElement("script");
+        
+            // Initialize the Web-SDK at the onLoad event of the script tag above so it will be called when the library is loaded.
+            script.onload = () => {
+              window.GrafanaFaroWebSdk.initializeFaro({
+                // Mandatory, the URL of the Grafana Cloud collector with embedded application key.
+                url: 'https://faro-collector-prod-us-east-0.grafana.net/collect/84c14c2fcecc8360f8f25560a3572cad',
+        
+                // Mandatory, the identification label(s) of your application
+                app: {
+                  name: 'FortuneCat',
+                  version: "1.0.0",
+                },
+                
+              });
+            };
+        
+            // Set the source of the script tag to the CDN
+            script.src = "https://unpkg.com/@grafana/faro-web-sdk@^1.4.0/dist/bundle/faro-web-sdk.iife.js";
+        
+            // Append the script tag to the head of the HTML page
+            document.head.appendChild(script);
+        })();
+
         fetch('https://fortunecat.azurewebsites.net/Text')
             .then(response => {
                 if (!response.ok) {
