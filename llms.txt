@@ -1,0 +1,28 @@
+# Joseph Breitreiter
+
+> Principal UX Designer, AI at Tricentis. Helping humans and AI understand each other and get stuff done.
+
+Full-stack designer based in Austin, TX. Twenty years across UX, front-end, and back-end. Background in data sensemaking — how users sift through, draw conclusions, and build cases from large volumes of data. Current work focuses on how that task changes when an AI agent is in the loop.
+
+## Case studies
+
+- [AI/ML Visiontype](https://dreamlands.org/case/aiml.html): Long-term product vision imagining what AI/ML could look like five years out.
+- [FeatureBase](https://dreamlands.org/case/featurebase.html): New SaaS UI for a realtime bitmap database.
+- [Nova Dashboards](https://dreamlands.org/case/dashboards.html): Redesign of SolarWinds' general dashboarding framework for IT professionals.
+- [Log Manager](https://dreamlands.org/case/logmanager.html): SolarWinds log collection and analysis product.
+- [Performance Analyzer](https://dreamlands.org/case/perfstack.html): Tool for analyzing timeseries data across heterogeneous IT entities.
+- [Capacity Planner](https://dreamlands.org/case/capacity.html): Capacity planning feature for SolarWinds Virtualization Manager.
+- [Lovecraftesque](https://dreamlands.org/case/lovecraftesque.html): Rules reference card for the storytelling game Lovecraftesque.
+
+## Side projects
+
+- [dreamlands](https://github.com/breitreiter/dreamlands): A web-based narrative CRPG.
+- [nb](https://github.com/breitreiter/nb): AI terminal swiss army knife.
+- [imp](https://github.com/breitreiter/imp): A coding harness for your coding harness.
+- [UglyPrompt](https://github.com/breitreiter/UglyPrompt): Permissively-licensed modern ReadLine for REPLs.
+
+## Contact
+
+- Email: contact@dreamlands.org
+- LinkedIn: https://www.linkedin.com/in/breitreiter/
+- Resume: https://dreamlands.org/JBreitreiter_Resume.pdf

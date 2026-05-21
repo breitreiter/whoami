@@ -10,3 +10,6 @@ Gemfile.lock
 .sass-cache
 _asset_bundler_cache
 _site
+
+# Resume build intermediates (PDF is committed; HTML is throwaway)
+resume.html
