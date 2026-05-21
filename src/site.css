@@ -1,0 +1,1257 @@
+/* ─────────────────────────────────────────────────────────────────────
+   Personal site — terminal-influenced typography & layout.
+   All colors flow from --bg / --ink / --accent set by JS on :root.
+   Everything else is derived via color-mix so palettes work out of the box.
+   ───────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Defaults — JS overrides these on mount. */
+  --bg:     #0a0e14;
+  --ink:    #c8d3df;
+  --accent: #5fbef0;        /* emphasis (metadata, prompts, tags) */
+  --accent-strong: #60ebf0; /* super-emphasis (brand glyph, hero accents) */
+  --accent-link:   #60f0c4; /* interactive (links, focus, cmdk active) */
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Derived tones */
+  --mute:    color-mix(in srgb, var(--ink) 50%, var(--bg));
+  --dim:     color-mix(in srgb, var(--ink) 30%, var(--bg));
+  --rule:    color-mix(in srgb, var(--ink) 22%, var(--bg));
+  --rule-strong: color-mix(in srgb, var(--ink) 40%, var(--bg));
+  --card:    color-mix(in srgb, var(--ink) 4%,  var(--bg));
+  --card-strong: color-mix(in srgb, var(--ink) 8%, var(--bg));
+  --accent-dim: color-mix(in srgb, var(--accent) 55%, var(--bg));
+  --selection: color-mix(in srgb, var(--accent) 88%, var(--bg));
+
+  /* Sizes */
+  --text-base: 14px;
+  --text-sm:   12.5px;
+  --text-xs:   11.5px;
+  --text-h:    16px;
+  --text-display: 56px;
+  --col-max: 920px;
+  --col-pad: 32px;
+  --gap-section: 72px;
+}
+
+[data-theme="dark"] {
+  --rule: color-mix(in srgb, var(--ink) 18%, var(--bg));
+  --card: color-mix(in srgb, var(--ink) 6%, var(--bg));
+}
+
+/* ────────────────────────────────────────────────────────────────────── */
+
+* { box-sizing: border-box; }
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  /* faint paper grain — only on light palettes */
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink) 4%, transparent) 1px, transparent 0);
+  background-size: 3px 3px;
+}
+
+[data-theme="dark"] body {
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 0);
+  background-size: 4px 4px;
+}
+
+a { color: inherit; }
+kbd {
+  font-family: inherit;
+  font-size: 0.85em;
+  padding: 1px 5px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: var(--card);
+  color: var(--mute);
+  font-weight: 500;
+}
+hr { display: none; }
+dl, ul, ol { margin: 0; padding: 0; list-style: none; }
+
+/* ── Page shell ───────────────────────────────────────────────────────── */
+
+.page {
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+.page.is-ready { opacity: 1; }
+
+.column {
+  max-width: var(--col-max);
+  margin: 0 auto;
+  padding: 0 var(--col-pad) 96px;
+}
+
+.section {
+  margin-top: var(--gap-section);
+}
+.section--whoami { margin-top: 28px; }
+
+/* ── Top bar ──────────────────────────────────────────────────────────── */
+
+.topbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  font-size: var(--text-xs);
+  color: var(--mute);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 36px;
+}
+.topbar-l { display: flex; align-items: center; gap: 8px; }
+.topbar-c { text-align: center; }
+.topbar-r { text-align: right; display: flex; align-items: center; gap: 4px; justify-content: flex-end; white-space: nowrap; }
+.topbar-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.topbar-r-sub { color: var(--dim); }
+.dot {
+  display: inline-block;
+  line-height: 1;
+  font-size: 8px;
+  transform: translateY(-1px);
+}
+.dot--green {
+  color: #4ea24a;
+  text-shadow: 0 0 6px #4ea24a;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+/* ── Prompts ──────────────────────────────────────────────────────────── */
+
+.prompt {
+  font-size: var(--text-sm);
+  color: var(--mute);
+  margin: 18px 0 14px;
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.prompt-user { color: var(--accent); }
+.prompt-host { color: var(--ink); }
+.prompt-at,
+.prompt-sep { color: var(--mute); }
+.prompt-path { color: color-mix(in srgb, var(--accent) 70%, var(--ink)); }
+.prompt-sigil {
+  color: var(--accent);
+  margin: 0 8px;
+  font-weight: 500;
+}
+.prompt-cmd {
+  color: var(--ink);
+}
+.prompt-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--ink);
+  animation: blink 1.05s steps(1, end) infinite;
+  font-weight: 400;
+}
+@keyframes blink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ── Section headers ──────────────────────────────────────────────────── */
+
+.sec-h {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-h);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.sec-h-num {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.sec-h-name {
+  color: var(--ink);
+}
+.sec-h-after {
+  color: var(--mute);
+  font-size: var(--text-sm);
+  margin-left: 6px;
+}
+.sec-h-pre {
+  color: var(--rule-strong);
+  font-size: var(--text-sm);
+  letter-spacing: -0.5px;
+}
+
+/* bare (no ASCII): hairline rule that grows to fill */
+.sec-h--bare {
+  gap: 12px;
+}
+.sec-h--bare .sec-h-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  margin-left: 4px;
+}
+
+/* light / heavy: ASCII rule */
+.sec-h-rule--ascii {
+  flex: 1 1 0;
+  overflow: hidden;
+  min-width: 0;
+  color: var(--rule-strong);
+  font-size: var(--text-sm);
+  margin-left: 10px;
+  letter-spacing: -0.5px;
+  height: 1.2em;
+}
+
+/* ── AsciiRule (between subsections) ─────────────────────────────────── */
+
+.rule {
+  display: block;
+  height: 1px;
+  background: var(--rule);
+  margin: 14px 0;
+  border: 0;
+}
+.rule--ascii {
+  display: block;
+  height: 1em;
+  background: none;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--rule-strong);
+  letter-spacing: -0.5px;
+  margin: 8px 0;
+  font-size: var(--text-sm);
+  line-height: 1;
+}
+
+/* ── Whoami block (hero) ─────────────────────────────────────────────── */
+
+.whoami {
+  margin-top: 18px;
+  padding: 0 0 8px;
+}
+.whoami-name {
+  font-size: clamp(36px, 7vw, var(--text-display));
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 8px 0 28px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.15em;
+}
+.whoami-name-text {
+  background: linear-gradient(180deg, var(--ink) 0%, color-mix(in srgb, var(--ink) 85%, var(--accent)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.whoami-blink {
+  font-size: 0.7em;
+  color: var(--accent);
+  animation: blink 1.05s steps(1, end) infinite;
+}
+.whoami-fields {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 4px 16px;
+  max-width: 720px;
+}
+
+/* ── Field rows (key: value) — shared between whoami + spec ─────────── */
+
+.spec-dt,
+.now-dt {
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: pre;
+}
+.spec-dd,
+.now-dd {
+  color: var(--ink);
+  margin: 0;
+}
+
+/* ── Spec card ───────────────────────────────────────────────────────── */
+
+.work-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 16px;
+}
+
+.spec {
+  position: relative;
+  font-size: var(--text-base);
+}
+
+.spec-top,
+.spec-bottom {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-base);
+  color: var(--rule-strong);
+  white-space: nowrap;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  user-select: none;
+}
+.spec-corner {
+  color: var(--rule-strong);
+}
+.spec-h {
+  color: var(--rule-strong);
+}
+.spec-h--grow {
+  flex: 1 1 0;
+  overflow: hidden;
+  min-width: 0;
+}
+.spec-tab {
+  color: var(--ink);
+  background: var(--bg);
+  padding: 0 4px;
+  font-weight: 500;
+}
+.spec-tab--alt {
+  color: var(--accent);
+  font-weight: 400;
+  font-size: var(--text-sm);
+}
+
+.spec-body {
+  padding: 16px 22px 18px;
+  border-left: 1px solid var(--rule-strong);
+  border-right: 1px solid var(--rule-strong);
+}
+.spec--bare .spec-body {
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--card);
+  padding: 22px 24px;
+}
+.spec--heavy .spec-body {
+  border-left-width: 2px;
+  border-right-width: 2px;
+  border-color: var(--rule-strong);
+}
+
+.spec-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--rule);
+}
+.spec-banner-name {
+  font-weight: 600;
+  font-size: var(--text-h);
+  color: var(--ink);
+}
+.spec-banner-meta {
+  font-size: var(--text-sm);
+  color: var(--accent);
+}
+
+.spec-tagline {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 4px 0 16px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.spec-fields {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 2px 16px;
+  margin: 10px 0;
+  font-size: var(--text-sm);
+}
+
+.spec-body-text {
+  margin: 6px 0;
+  color: color-mix(in srgb, var(--ink) 88%, var(--bg));
+  text-wrap: pretty;
+}
+
+.spec-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  font-size: var(--text-sm);
+}
+.spec-links li {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+.spec-link-key {
+  color: var(--accent);
+  white-space: pre;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Tags ────────────────────────────────────────────────────────────── */
+
+.tag {
+  display: inline-block;
+  padding: 0 6px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  font-size: var(--text-xs);
+  color: var(--mute);
+  background: var(--card);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+.tag--shipped {
+  color: #4a8a5a;
+  border-color: color-mix(in srgb, #4a8a5a 45%, var(--bg));
+  background: color-mix(in srgb, #4a8a5a 8%, var(--bg));
+}
+[data-theme="dark"] .tag--shipped {
+  color: #6dc77b;
+  border-color: color-mix(in srgb, #6dc77b 35%, var(--bg));
+}
+.tag--internal {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--bg));
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+}
+.tag--ongoing {
+  color: #6dc77b;
+  border-color: color-mix(in srgb, #6dc77b 45%, var(--bg));
+  background: color-mix(in srgb, #6dc77b 8%, var(--bg));
+}
+.tag--past {
+  color: var(--mute);
+}
+
+/* ── Terminal-selection link hover ───────────────────────────────────── */
+
+.t-link {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  padding: 0 2px;
+  margin: 0 -2px;
+  border-radius: 1px;
+  transition: color 80ms ease-out;
+  cursor: pointer;
+}
+.t-link-text {
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 100ms;
+}
+.t-link:hover .t-link-text,
+.t-link:focus-visible .t-link-text {
+  background: var(--accent-link);
+  color: var(--bg);
+  text-decoration-color: transparent;
+}
+.t-link:hover .t-link-arrow {
+  color: var(--accent-link);
+}
+.t-link-arrow {
+  color: var(--accent-link);
+}
+
+.t-link:focus-visible {
+  outline: 2px solid var(--accent-link);
+  outline-offset: 1px;
+}
+
+/* ── Prose ───────────────────────────────────────────────────────────── */
+
+.prose {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  margin: 12px 0;
+  color: color-mix(in srgb, var(--ink) 88%, var(--bg));
+  text-wrap: pretty;
+}
+
+/* ── Now grid ────────────────────────────────────────────────────────── */
+
+.now-grid {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 6px 16px;
+  margin-top: 18px;
+  max-width: 760px;
+}
+.now-dt {
+  text-transform: lowercase;
+  font-size: var(--text-sm);
+}
+.now-dd {
+  color: var(--ink);
+  font-size: var(--text-base);
+}
+
+/* ── Writing list ────────────────────────────────────────────────────── */
+
+.writing-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.writing-row {
+  display: grid;
+  grid-template-columns: 80px auto 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 4px 0;
+  font-size: var(--text-base);
+}
+.writing-date {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-sm);
+}
+.writing-blurb {
+  color: var(--mute);
+  font-size: var(--text-sm);
+}
+
+/* ── Elsewhere list ──────────────────────────────────────────────────── */
+
+.elsewhere {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 16px;
+  font-size: var(--text-base);
+}
+.elsewhere li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.elsewhere-key {
+  color: var(--accent);
+  white-space: pre;
+  font-size: var(--text-sm);
+  min-width: 80px;
+}
+
+.status-on {
+  color: color-mix(in srgb, var(--accent) 70%, var(--ink));
+}
+.dim { color: var(--dim); }
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+
+.footer {
+  margin-top: 96px;
+  font-size: var(--text-xs);
+  color: var(--mute);
+}
+.footer-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  padding: 16px 0 4px;
+  align-items: center;
+}
+.footer-mid {
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.footer-sep { color: var(--rule-strong); }
+.footer-row > :last-child { text-align: right; }
+.footer-cursor {
+  color: var(--accent);
+  margin-left: 2px;
+  animation: blink 1.05s steps(1, end) infinite;
+}
+.clock-val {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Command palette ─────────────────────────────────────────────────── */
+
+.cmdk-backdrop {
+  position: fixed; inset: 0;
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 99999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 14vh;
+  animation: cmdk-in 100ms ease-out;
+}
+@keyframes cmdk-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.cmdk {
+  width: min(640px, calc(100vw - 40px));
+  background: var(--bg);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  box-shadow: 0 24px 64px color-mix(in srgb, var(--ink) 24%, transparent);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+}
+.cmdk-prompt {
+  position: absolute;
+  margin-top: 14px;
+  margin-left: 16px;
+  color: var(--accent-link);
+  font-weight: 600;
+}
+.cmdk-input {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--ink);
+  padding: 12px 16px 12px 36px;
+  outline: 0;
+  border-bottom: 1px solid var(--rule);
+  width: 100%;
+  caret-color: var(--accent-link);
+}
+.cmdk-input::placeholder { color: var(--mute); }
+.cmdk-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 0;
+}
+.cmdk-item {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.cmdk-item.is-active {
+  background: color-mix(in srgb, var(--accent-link) 14%, var(--bg));
+  color: var(--ink);
+}
+.cmdk-arrow {
+  color: var(--accent-link);
+  font-weight: 500;
+}
+.cmdk-label {
+  font-size: var(--text-base);
+}
+.cmdk-hint {
+  font-size: var(--text-xs);
+  color: var(--mute);
+}
+.cmdk-empty {
+  padding: 16px;
+  color: var(--mute);
+  text-align: center;
+  font-size: var(--text-sm);
+}
+.cmdk-foot {
+  display: flex;
+  gap: 16px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--rule);
+  font-size: var(--text-xs);
+  color: var(--mute);
+}
+.cmdk-foot kbd {
+  font-size: 0.9em;
+  padding: 0 4px;
+}
+
+/* ── Help hint (bottom-left) ─────────────────────────────────────────── */
+
+.help-hint {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: var(--text-xs);
+  color: var(--mute);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--rule);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1000;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  :root {
+    --text-display: 36px;
+    --col-pad: 18px;
+    --gap-section: 56px;
+  }
+  .topbar-c { display: none; }
+  .topbar { grid-template-columns: 1fr auto; }
+  .whoami-fields { grid-template-columns: 80px 1fr; gap: 4px 12px; }
+  .spec-fields { grid-template-columns: 72px 1fr; }
+  .writing-row { grid-template-columns: 1fr; gap: 2px; }
+  .writing-row .writing-blurb { font-size: var(--text-xs); }
+  .help-hint { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HARNESS LAYOUT — coding-agent transcript shape.
+   Banner → tip line → user turns → tool calls → assistant output →
+   end-of-transcript marker. Status bar pinned to bottom.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.page--harness .column {
+  padding-bottom: 120px;       /* clear the fixed status bar */
+  padding-top: 28px;
+}
+
+/* ── Banner (welcome) ────────────────────────────────────────────────── */
+
+.banner {
+  margin: 0 0 8px;
+  position: relative;
+  font-size: var(--text-base);
+  line-height: 1.55;
+}
+.banner-top,
+.banner-bot {
+  display: flex;
+  color: var(--rule-strong);
+  white-space: nowrap;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  user-select: none;
+  font-size: var(--text-base);
+}
+.banner-fill {
+  flex: 1 1 0;
+  overflow: hidden;
+  min-width: 0;
+}
+.banner-body {
+  border: 1px solid var(--rule-strong);
+  border-radius: 8px;
+  padding: 22px 28px 22px 28px;
+  background: color-mix(in srgb, var(--ink) 3%, var(--bg));
+}
+[data-theme="dark"] .banner-body {
+  background: color-mix(in srgb, var(--accent) 4%, var(--bg));
+}
+.banner-body > * { margin: 0; }
+.banner-body > * + * { margin-top: 6px; }
+
+.banner-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+.banner-name {
+  font-size: clamp(20px, 3.2vw, 28px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--mute);
+  flex: 1;
+  text-wrap: balance;
+}
+.banner-name strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.banner-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #000 url("../images/itme_med.png") no-repeat center top / cover;
+  flex-shrink: 0;
+  border: 1px solid var(--rule-strong);
+}
+@keyframes glyph-pulse {
+  0%, 100% { opacity: 1;   transform: rotate(0deg);  }
+  50%      { opacity: 0.7; transform: rotate(45deg); }
+}
+.banner-meta {
+  font-size: var(--text-sm);
+  color: var(--mute);
+}
+.banner-sep { color: var(--rule-strong); }
+.banner-status-row {
+  font-size: var(--text-sm);
+  color: var(--ink);
+}
+.banner-dot {
+  color: #4ea24a;
+  font-size: 9px;
+  line-height: 1;
+  display: inline-block;
+  text-shadow: 0 0 6px #4ea24a;
+  animation: pulse 2s ease-in-out infinite;
+  margin-right: 2px;
+  transform: translateY(-1px);
+}
+.banner-spacer { height: 10px; }
+.banner-hint-row {
+  font-size: var(--text-sm);
+  color: var(--mute);
+}
+.banner-hint-label {
+  color: var(--accent-strong);
+  font-weight: 600;
+  margin-right: 2px;
+}
+.banner-cwd {
+  font-size: var(--text-xs);
+  color: var(--mute);
+}
+
+/* ── Tip line ────────────────────────────────────────────────────────── */
+
+.tip {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: var(--text-xs);
+  color: var(--mute);
+  padding: 12px 28px 4px;
+  max-width: 92ch;
+}
+.tip-glyph {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.tip-text { text-wrap: pretty; }
+
+/* ── User turn (the `> prompt` box that opens each section) ──────────── */
+
+.conv-turn { margin-top: 40px; }
+.conv-turn:first-of-type { margin-top: 28px; }
+
+.turn {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: 1.4;
+}
+.turn-top,
+.turn-bot {
+  display: flex;
+  color: color-mix(in srgb, var(--accent) 55%, var(--bg));
+  white-space: nowrap;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  user-select: none;
+}
+.turn-fill {
+  flex: 1 1 0;
+  overflow: hidden;
+  min-width: 0;
+}
+.turn-body {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--bg));
+  border-radius: 8px;
+  padding: 10px 18px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg));
+}
+.turn-caret {
+  color: var(--accent-strong);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.turn-text {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ── Tool call ───────────────────────────────────────────────────────── */
+
+.tool {
+  margin: 14px 0 4px;
+  font-size: var(--text-sm);
+}
+.tool-head {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+.tool-head:hover .tool-name {
+  color: var(--accent);
+}
+.tool-bullet {
+  color: var(--accent);
+  margin-right: 8px;
+  font-size: 10px;
+  line-height: 1;
+  transform: translateY(-1px);
+  flex-shrink: 0;
+}
+.tool-name {
+  color: var(--ink);
+  font-weight: 500;
+  transition: color 100ms;
+}
+.tool-paren {
+  color: var(--mute);
+}
+.tool-args {
+  color: var(--accent);
+  font-weight: 400;
+}
+.tool-caret {
+  color: var(--mute);
+  font-size: 13px;
+  line-height: 1;
+  margin-left: 12px;
+  opacity: 0;
+  transition: opacity 100ms;
+}
+.tool-head:hover .tool-caret { opacity: 0.7; }
+.tool-result {
+  display: block;
+  margin-top: 2px;
+  padding-left: 18px;
+  font-size: var(--text-sm);
+  color: var(--mute);
+  line-height: 1.5;
+}
+.tool-corner {
+  display: inline-block;
+  color: var(--rule-strong);
+  margin-right: 8px;
+  vertical-align: baseline;
+}
+.tool-summary { color: var(--mute); }
+
+/* ── Assistant content (the actual output below the tool call) ───────── */
+
+.assistant {
+  margin-top: 14px;
+  padding: 0;
+}
+.assistant > * + * { margin-top: 14px; }
+
+/* tighten the now-grid + writing-list margins when inside .assistant */
+.assistant .now-grid,
+.assistant .writing-list,
+.assistant .elsewhere,
+.assistant .work-list {
+  margin-top: 12px;
+}
+
+/* ── About fields (when shown inline inside an assistant block) ──────── */
+
+.whoami-fields--inline {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--rule);
+  grid-template-columns: 90px 1fr;
+}
+
+/* ── Elsewhere as a TOML-like config block ───────────────────────────── */
+
+.assistant .elsewhere li {
+  gap: 8px;
+}
+.elsewhere-eq { color: var(--mute); }
+.elsewhere-key {
+  min-width: 90px;
+  font-size: var(--text-sm);
+}
+
+/* ── End-of-transcript marker ────────────────────────────────────────── */
+
+.eot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 64px;
+  color: var(--rule-strong);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+.eot-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  min-width: 0;
+}
+.eot-text {
+  color: var(--mute);
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  padding: 0 6px;
+  background: var(--bg);
+}
+
+/* ── Sticky status bar (the bottom strip) ────────────────────────────── */
+
+.statusbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 24px;
+  font-size: var(--text-xs);
+  color: var(--mute);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--rule);
+  z-index: 50;
+  user-select: none;
+}
+.statusbar-l,
+.statusbar-r {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+}
+.statusbar-l > :nth-child(2) { color: var(--ink); }
+.statusbar-c {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+.statusbar-c .tab-num {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.statusbar-r { justify-content: flex-end; }
+.statusbar-sep { color: var(--rule-strong); }
+.statusbar-r kbd { margin-left: 2px; }
+
+/* ── Adjustments for dark palette readability ────────────────────────── */
+
+[data-theme="dark"] .spec-tab { background: var(--bg); }
+[data-theme="dark"] .turn-body { box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 8%, transparent) inset; }
+[data-theme="dark"] .prose,
+[data-theme="dark"] .spec-body-text {
+  color: color-mix(in srgb, var(--ink) 92%, var(--accent));
+}
+
+/* the old TopBar / Footer / HelpHint aren't used in harness layout */
+.page--harness .topbar,
+.page--harness .footer,
+.page--harness .help-hint { display: none; }
+
+/* ── Responsive — harness ────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .banner-body { padding: 18px 18px; }
+  .turn-body { padding: 8px 12px; }
+  .tip { padding: 10px 18px 4px; }
+  .statusbar { padding: 6px 14px; font-size: 10.5px; }
+  .statusbar-c { display: none; }
+  .statusbar { grid-template-columns: 1fr auto; }
+  .whoami-fields--inline { grid-template-columns: 70px 1fr; }
+  .page--harness .column { padding-bottom: 80px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CASE STUDY LAYOUT — used by Jekyll-rendered .md pages in case/.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.page--case .column {
+  padding-top: 28px;
+  padding-bottom: 80px;
+}
+
+.case-back {
+  font-size: var(--text-sm);
+  margin: 0 0 24px;
+}
+
+.case-header {
+  margin: 24px 0 48px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--rule);
+}
+.case-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+}
+.case-subtitle {
+  font-size: var(--text-h);
+  color: var(--mute);
+  margin: 8px 0 0;
+}
+
+/* Case-study prose breaks character: proportional serif for the body, mono
+   stays on headings and code so the page still reads as part of the site. */
+.markdown {
+  font-family: ui-serif, Charter, "Iowan Old Style", Cambria, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--ink) 90%, var(--bg));
+}
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown code,
+.markdown pre {
+  font-family: var(--font-mono);
+}
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 1.8em 0 0.6em;
+}
+.markdown h1 { font-size: 26px; }
+.markdown h2 { font-size: 21px; }
+.markdown h3 { font-size: 18px; }
+.markdown h4 { font-size: var(--text-h); }
+.markdown p {
+  margin: 1em 0;
+  max-width: 78ch;
+  text-wrap: pretty;
+}
+.markdown ul,
+.markdown ol {
+  margin: 1em 0;
+  padding-left: 1.6em;
+  max-width: 78ch;
+  list-style: revert;
+}
+.markdown li { margin: 0.3em 0; }
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.6em 0;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+}
+.markdown a {
+  color: var(--accent-link);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent-link) 50%, transparent);
+  text-underline-offset: 3px;
+  transition: background 80ms ease-out, color 80ms ease-out;
+}
+.markdown a:hover {
+  background: var(--accent-link);
+  color: var(--bg);
+  text-decoration-color: transparent;
+}
+.markdown blockquote {
+  margin: 1.4em 0;
+  padding: 4px 0 4px 16px;
+  border-left: 2px solid var(--accent);
+  color: var(--mute);
+}
+.markdown code {
+  font-family: var(--font-mono);
+  background: var(--card);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.92em;
+  border: 1px solid var(--rule);
+}
+.markdown pre {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+.markdown pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+}
+.markdown hr {
+  display: block;
+  height: 1px;
+  background: var(--rule);
+  border: 0;
+  margin: 2.4em 0;
+}
+.markdown strong { font-weight: 600; color: var(--ink); }

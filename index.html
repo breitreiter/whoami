@@ -1,371 +1,54 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Joseph Breitreiter</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joseph Breitreiter</title>
+  <meta name="description" content="Principal UX Designer, AI. Helping humans and AI understand each other and get stuff done." />
 
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Joseph Breitreiter - Design Nerd">
-		<meta name="twitter:description" content="Seasoned designer, former coder. Helping humans reason about big datasets.">
-		<meta name="twitter:image" content="https://breitreiter.github.io/whoami/images/twitter_card.png">
-	</head>
-	<body class="is-preload">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Joseph Breitreiter — Principal UX Designer, AI">
+  <meta name="twitter:description" content="Helping humans and AI understand each other and get stuff done.">
+  <meta name="twitter:image" content="https://dreamlands.org/images/twitter_card.png">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  <!-- Thumbnail for the standalone bundler / share previews -->
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+      <rect width="100" height="100" fill="#ece6d2"/>
+      <g transform="translate(30 30)" font-family="ui-monospace, monospace" font-size="22" fill="#1a1812">
+        <text x="0" y="20">$_</text>
+      </g>
+      <rect x="30" y="62" width="40" height="2" fill="#b8421c"/>
+    </svg>
+  </template>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo" ><img src="images/pic01.jpg" alt="" style="border-radius:100%; border: solid 6px whitesmoke" /></span>
-						<h1>Hey, I'm Joseph</h1>
-					</header>
+  <!-- Fonts: five monos so the typeface tweak has real range. Single request. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Fira+Code:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro" class="active">Who am I?</a></li>
-							<li><a href="#resume">Timeline</a></li>
-							<li><a href="#projects">Projects</a></li>
-							<li><a href="#fun">Fun Stuff</a></li>
-						</ul>
-					</nav>
+  <link rel="stylesheet" href="src/site.css">
+</head>
+<body>
+  <div id="root"></div>
 
-				<!-- Main -->
-					<div id="main">
+  <!-- React + Babel, pinned with integrity hashes per house rules -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-						<!-- Introduction -->
-							<section id="intro" class="main">
-								<div class="spotlight" style="column-gap: 50px;">
-									<div class="content" >
-										<p>
-											I'm a &quot;full-stack&quot; designer with ten years UX design, six years 
-											front-end development, and four years back-end development. 
-											I design products that make technical professionals look good.
-										</p>
-										<p>
-											My pronouns are he/him.
-										</p>
-										<p>
-											My particular focus is on data visualization and the sensemaking
-											and research task. I am fascinated by how users sift through, 
-											draw conclusions, and build cases from large volumes of data.
-										</p>
-										<ul class="actions">
-											<li><a href="mailto:contact@dreamlands.org" class="button">Let's Talk</a></li>
-										</ul>
-									</div>
-									<img class="decoration" src="illus/lounge-the-workplace-of-a-marketer.png" alt="" />
-								</div>
-							</section>
+  <!-- Site data (window.SITE) -->
+  <script src="src/data.js"></script>
 
-						<!-- First Section -->
-							<section id="resume" class="main special">
-								<header class="major">
-									<h2>Timeline</h2>
-								</header>
-								<ul class="statistics">
-									<li class="style1" onclick="window.location='#job_surgient'">
-										<img class="companylogo" src="images/logo_surgient.png"/>
-										<strong>Surgient</strong>
-										Engineer<br/>
-										2003-2007
-									</li>
-									<li class="style2" onclick="window.location='#job_hyper9'">
-										<img class="companylogo" src="images/logo_hyper9.png"/>
-										<strong>Hyper9</strong>
-										UI Lead<br/>
-										2007-2011
-									</li>
-									<li class="style3" onclick="window.location='#job_solarwinds'">
-										<img class="companylogo" src="images/logo_solarwinds.png"/>
-										<strong>SolarWinds</strong>
-										Principal Designer<br/>
-										2011-2021
-									</li>
-									<li class="style4" onclick="window.location='#job_featurebase'">
-										<img class="companylogo" src="images/logo_featurebase.png"/>
-										<strong>FeatureBase</strong>
-										Principal Designer<br/>
-										2021-2023
-									</li>
-									<li class="style5" onclick="window.location='#job_grafana';">
-										<img class="companylogo" src="images/logo_grafana.png"/>
-										<strong>Grafana</strong>
-										Staff Designer<br/>
-										2023-Present
-									</li>
-								</ul>
+  <!-- Tweaks shell (registers TweaksPanel etc. on window) -->
+  <script type="text/babel" src="src/tweaks-panel.jsx"></script>
 
-								<ul class="joblist">
-									<li id="job_surgient">
-										<div class="job_container">
-											<div class="left" style="background-color: #F8F1F8;">
-												<h3>Surgient</h3>
-												<p style="font-size: smaller;">
-													<strong>Stage:</strong> Transformation<br/>
-													<strong>Role:</strong> Developer<br/>
-													<strong>Tools:</strong> C#, C++, XML/XSLT, VMware<br/>
-													<strong>Tenure:</strong> 4 years
-												</p>
-											</div>
-											<div class="right">
-												<p>
-													Surgient built automation software for virtual servers and networks.
-												</p>
-												<p>
-													I started on the UI side, but eventually spent time building our API, working on the data model,
-													designing our agent protocol, and building tools for bulk-editing virtual machine images. I had
-													some really amazing industry veteran mentors during my time at Surgient. They taught me the 
-													difference between <i>writing code</i> and <i>building a product</i>.
-												</p>
-											</div>
-										</div>
-									</li>
-									<li id="job_hyper9">
-										<div class="job_container">
-											<div class="left" style="background-color: #F0EEF7;">
-												<h3>Hyper9</h3>
-												<p style="font-size: smaller;">
-													<strong>Stage:</strong> Startup<br/>
-													<strong>Role:</strong> Developer<br/>
-													<strong>Tools:</strong> JQuery, Flex, Maven, Lucene<br/>
-													<strong>Tenure:</strong> 3 years
-												</p>
-											</div>
-											<div class="right">
-												<p>
-													Hyper9 was a response to the unique problems of managing virtual environments. We
-													crawled virtual asset inventories, then indexed that data in Lucene. We built a 
-													suite of search-based tools for alerting, reporting, and performance analysis. 
-													Hyper9 was acquired by SolarWinds.
-												</p>
-												<p>
-													I led design and construction of the UI; first as an HTML/XHR SPA, then in Flex.
-													Hyper9 was the seed for my interest in the research task, and it was during my
-													time here I first encountered the work of Marti Hearst, Peter Pirolli, and 
-													Daniel Russell.
-												</p>
-											</div>
-										</div>
-									</li>
-									<li id="job_solarwinds">
-										<div class="job_container">
-											<div class="left" style="background-color: #F0F4F9;">
-												<h3>SolarWinds</h3>
-												<p style="font-size: smaller;">
-													<strong>Stage:</strong> Market leader<br/>
-													<strong>Role:</strong> Developer, designer<br/>
-													<strong>Tools:</strong> C#, Flex, Axure, Sketch<br/>
-													<strong>Tenure:</strong> 10 years
-												</p>
-											</div>
-											<div class="right">
-												<p>
-													SolarWinds is a leader in the enterprise ITOM and observability market. We built a broad
-													suite of products for system administrators, network managers, SREs, developers, and ops teams.
-												</p>
-												<p>
-													I spent my first year helping integrate Hyper9 into the SolarWinds product family. I moved
-													over to the UX team and spent the next nine years leading design on three new products, 
-													three major platform features, and countless feature releases.
-												</p>
-											</div>
-										</div>
-									</li>
-									<li id="job_featurebase">
-										<div class="job_container">
-											<div class="left" style="background-color: #F1F8FD;">
-												<h3>FeatureBase</h3>
-												<p style="font-size: smaller;">
-													<strong>Stage:</strong> Startup<br/>
-													<strong>Role:</strong> Designer<br/>
-													<strong>Tools:</strong> Figma, Zeplin, design system, design ops<br/>
-													<strong>Tenure:</strong> 2 years
-												</p>
-											</div>
-											<div class="right">
-												<p>
-													FeatureBase was a cloud data startup. We built a realtime database powered by bitmaps.
-												</p>
-												<p>	
-													I was brought in to design the company's new SaaS UI. I also built out the bones of a design
-													process (ceremonies, tooling, design system) and a research practice (processes and a core of 
-													friendly users).
-												</p>
-											</div>
-										</div>
-									</li>
-									<li id="job_grafana">
-										<div class="job_container">
-											<div class="left" style="background-color: #FCE9EA;">
-												<h3>Grafana</h3>
-												<p style="font-size: smaller;">
-													<strong>Stage:</strong> Mid-sized<br/>
-													<strong>Role:</strong> Designer<br/>
-													<strong>Tools:</strong> Figma<br/>
-													<strong>Tenure:</strong> Ongoing
-												</p>
-											</div>
-											<div class="right">
-												<p>
-													Grafana is a leading provider of open-source and cloud observability solutions.
-												</p>
-												<p>
-													I initially worked with the as-code team, helping develop patterns for automating and 
-													provisioning Grafana. I later moved to the AI/ML team, where I do industry, technical,
-													and customer research to shape how Grafana leverages these technologies.
-												</p>
-											</div>
-										</div>
-									</li>
-								</ul>
-								
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="JBreitreiter_Resume.pdf" class="button">Download a PDF Resume</a></li>
-									</ul>
-								</footer>
-							</section>
+  <!-- App components, then app entry -->
+  <script type="text/babel" src="src/components.jsx"></script>
+  <script type="text/babel" src="src/app.jsx"></script>
 
-						<!-- Second Section -->
-							<section id="projects" class="main special">
-								<header class="major">
-									<h2>Projects</h2>
-								</header>
-								<ul class="features">
-									<li onclick="window.location='case/aiml.html'">
-										<img src="images/teaser_aiml.webp" alt="" />
-										<h3>AI/ML Visiontype</h3>
-										<p class="year">2023</p>
-										<p>
-											A long-term product visiontype
-										</p>
-									</li>
-									<li onclick="window.location='case/featurebase.html'">
-										<img src="images/teaser_featurebase.webp" alt="" />
-										<h3>FeatureBase</h3>
-										<p class="year">2022</p>
-										<p>
-											A SaaS interface for a high-performance bitmap database
-										</p>
-									</li>
-									<li onclick="window.location='case/dashboards.html'">
-										<img src="images/teaser_dashboards.webp" alt="" />
-										<h3>Nova Dashboards</h3>
-										<p class="year">2019</p>
-										<p>
-											A general dashboarding framework for IT professionals
-										</p>
-									</li>
-									<li onclick="window.location='case/logmanager.html'">
-										<img src="images/teaser_logman.webp" alt="" />
-										<h3>Log Manager</h3>
-										<p class="year">2018</p>
-										<p>
-											A log collection and analysis product
-										</p>
-									</li>
-									<li onclick="window.location='case/perfstack.html'">
-										<img src="images/teaser_perfstack.webp" alt="" />
-										<h3>Performance Analyzer</h3>
-										<p class="year">2016</p>
-										<p>
-											A tool for analyzing timeseries data
-										</p>
-									</li>
-								</ul>
-							</section>
-
-						<!-- Get Started -->
-							<section id="fun" class="main special">
-								<header class="major">
-									<h2>Fun Stuff</h2>
-								</header>
-								<div class="spotlight" styl="column-gap: 50px;">
-									<img class="decoration" src="illus/lounge-man-analyst-at-coffee-break-in-the-office.png" alt="" />
-									<div class="content" style="margin-left: 50px; text-align: left;">
-										<div>
-											<h3>Hiking</h3>
-											<p>
-												I do quite a lot of hiking in the Texas hill country. I also try to do a destination hike each year.
-											</p>
-											<ul>
-												<li><a href="https://www.instagram.com/p/CRUy4MPLcMn/?utm_source=ig_web_copy_link">Forest Park in Portland</a></li>
-												<li><a href="https://www.instagram.com/p/BWxbEvvBzIq/?utm_source=ig_web_copy_link">Landmannalauger</a></li>
-												<li><a href="https://www.instagram.com/p/BaejzLCHfcE/?utm_source=ig_web_copy_link">East Coast Trail in St John's</a></li>
-												<li><a href="https://www.instagram.com/p/BfbxWxXH4Hw/?utm_source=ig_web_copy_link">Big Bend</a></li>
-												<li><a href="https://www.instagram.com/p/BpidKr8nZ_l/?utm_source=ig_web_copy_link">Rocky Mountain National Park</a></li>
-												<li><a href="https://www.instagram.com/p/BpidbKSnH7K/?utm_source=ig_web_copy_link">Bryce Canyon</a></li>
-											</ul>
-										</div>
-										<div>
-											<h3>Game Design</h3>
-											<p>
-												I make simple, bespoke games intended for small groups. You can think of them as a set of processes for having fun.
-											</p>
-											<ul>
-												<li><a href="https://dreamlands.org/fortunecat/">Fortune Cat</a> (<a href="https://github.com/breitreiter/FortuneCat">repo</a>)</li>
-												<li><a href="https://docs.google.com/document/d/1g0bXnpsOv_2B924MaXPDoZSai3i9t5i-_v7NS80Kr60/edit?usp=sharing">Goblin and Gremlins</a></li>
-												<li><a href="gng_card_images.zip">Goblins and Gremlins (print-ready card images)</a></li>
-												<li><a href="https://docs.google.com/document/d/1avBr4a8yWRKhPCeJv5iwDrEybGWuDMIhJgBZZK26vk4/edit?usp=sharing">Facility Facilitator's Guide</a></li>
-												<li><a href="The_Facility-Print_And_Play_2016.pdf">The Facility (game materials)</a></li>							
-											</ul>
-										</div>
-										<div>
-											<h3>Reading</h3>
-											<p>
-												I read a bit, and keep a journal of my books on Goodreads.
-											</p>
-											<ul>
-												<li><a href="https://www.goodreads.com/review/list/34554197-joseph-breitreiter?shelf=favorites">All-time faves</a></li>
-												<li><a href="https://www.goodreads.com/review/list/34554197-joseph-breitreiter?shelf=design">Recent design books</a></li>
-												<li><a href="https://www.goodreads.com/review/list/34554197-joseph-breitreiter?shelf=business">Recent business books</a></li>
-												<li><a href="https://www.goodreads.com/review/list/34554197-joseph-breitreiter?shelf=philosophy">Recent philosophy books</a></li>
-											</ul>
-										</div>
-									</div>									
-								</div>
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<h2>Want to chat?</h2>
-							<p>Always ready to talk about my previous projects, how users navigate and make sense of complex data, or whether Tymna/Kodama or Tymna/Kamahl is the better Abzan deck.</p>
-						</section>
-						<section>
-							<h2>Contact me</h2>
-							<dl class="alt">
-								<dt>Phone</dt>
-								<dd>(512) 296-4825</dd>
-								<dt>Email</dt>
-								<dd><a href="mailto:contact@dreamlands.org">contact@dreamlands.org</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="https://www.linkedin.com/in/breitreiter/" class="icon brands fa-linkedin alt"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.instagram.com/cairtheand/" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-							</ul>
-						</section>
-						<p class="copyright">&copy; Joseph Breitreiter</p>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		<!-- Clicky -->
-		<script async src="//static.getclicky.com/101388075.js"></script>
-		<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101388075ns.gif" /></p></noscript>
-	</body>
+  <!-- Clicky -->
+  <script async src="//static.getclicky.com/101388075.js"></script>
+  <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101388075ns.gif" /></p></noscript>
+</body>
 </html>

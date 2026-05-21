@@ -1,71 +1,46 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>{{ page.title }}</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="{{ site.baseurl }}/assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} · Joseph Breitreiter</title>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="casestudy">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-				<!-- Header -->
-					<header id="header">
-						<h1>{{ page.title }}</h1>
-						<p>{{ page.subtitle }}</p>
-					</header>
+  <link rel="stylesheet" href="{{ site.baseurl }}/src/site.css">
+</head>
+<body>
+  <div class="page page--case is-ready">
+    <main class="column">
 
-				<!-- Main -->
-					<div id="main">
+      <p class="case-back">
+        <a href="{{ site.baseurl }}/" class="t-link">
+          <span class="t-link-arrow">← </span><span class="t-link-text">home</span>
+        </a>
+      </p>
 
-						<!-- Content -->
-							<section id="content" class="main markdown">
-								{{ content }}
-								<ul class="actions">
-									<li><a href="/#projects" class="button">Back to Projects</a></li>
-								</ul>
-							</section>
+      <header class="case-header">
+        <h1 class="case-title">{{ page.title }}</h1>
+        {% if page.subtitle %}<p class="case-subtitle">{{ page.subtitle }}</p>{% endif %}
+      </header>
 
-					</div>
+      <article class="markdown">
+        {{ content }}
+      </article>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<h2>Want to chat?</h2>
-							<p>Always ready to talk about my previous projects, how users navigate and make sense of complex data, or whether Tymna/Kodama or Tymna/Kamahl is the better Abzan deck.</p>
-						</section>
-						<section>
-							<h2>Contact me</h2>
-							<dl class="alt">
-								<dt>Phone</dt>
-								<dd>(512) 296-4825</dd>
-								<dt>Email</dt>
-								<dd><a href="mailto:contact@dreamlands.org">contact@dreamlands.org</a></dd>
-							</dl>
-							<ul class="icons">
-								<li><a href="https://www.linkedin.com/in/breitreiter/" class="icon brands fa-linkedin alt"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.instagram.com/cairtheand/" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-							</ul>
-						</section>
-						<p class="copyright">&copy; Joseph Breitreiter</p>
-					</footer>
+      <p class="case-back" style="margin-top: 48px;">
+        <a href="{{ site.baseurl }}/" class="t-link">
+          <span class="t-link-arrow">← </span><span class="t-link-text">home</span>
+        </a>
+      </p>
 
-			</div>
+    </main>
+  </div>
 
-		<!-- Scripts -->
-		<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
-		<script src="{{ site.baseurl }}/assets/js/jquery.scrollex.min.js"></script>
-		<script src="{{ site.baseurl }}/assets/js/jquery.scrolly.min.js"></script>
-		<script src="{{ site.baseurl }}/assets/js/browser.min.js"></script>
-		<script src="{{ site.baseurl }}/assets/js/breakpoints.min.js"></script>
-		<script src="{{ site.baseurl }}/assets/js/util.js"></script>
-		<script src="{{ site.baseurl }}/assets/js/main.js"></script>
-		<!-- Clicky -->
-		<script async src="//static.getclicky.com/101388075.js"></script>
-		<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101388075ns.gif" /></p></noscript>
-
-	</body>
+  <!-- Clicky -->
+  <script async src="//static.getclicky.com/101388075.js"></script>
+  <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101388075ns.gif" /></p></noscript>
+</body>
 </html>
