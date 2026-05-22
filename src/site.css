@@ -61,18 +61,78 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Scroll-linked background blobs ──────────────────────────────────
+   Two soft gradient blobs in the accent palette, painted as background-
+   image layers on body so there's no stacking surprise. Positions
+   interpolate with scroll progress via animation-timeline; no motion
+   while sitting still. Safari/Firefox: blobs stay at initial positions.
+   Tune intensity via the % in color-mix; tune motion range via the
+   keyframe end values. */
+
+@property --blob1-x { syntax: '<percentage>'; inherits: false; initial-value: 18%; }
+@property --blob1-y { syntax: '<percentage>'; inherits: false; initial-value: 22%; }
+@property --blob2-x { syntax: '<percentage>'; inherits: false; initial-value: 82%; }
+@property --blob2-y { syntax: '<percentage>'; inherits: false; initial-value: 78%; }
+
 body {
   min-height: 100vh;
-  /* faint paper grain — only on light palettes */
   background-image:
+    /* primary cyan blob — large, soft falloff */
+    radial-gradient(circle 50vw at var(--blob1-x) var(--blob1-y),
+      color-mix(in srgb, var(--accent) 16%, transparent) 0%,
+      color-mix(in srgb, var(--accent) 7%, transparent) 30%,
+      transparent 70%),
+    /* cyan ghost — offset, breaks the egg shape */
+    radial-gradient(circle 28vw at calc(var(--blob1-x) + 18%) calc(var(--blob1-y) + 14%),
+      color-mix(in srgb, var(--accent) 11%, transparent) 0%,
+      transparent 75%),
+    /* primary mint blob */
+    radial-gradient(circle 48vw at var(--blob2-x) var(--blob2-y),
+      color-mix(in srgb, var(--accent-link) 14%, transparent) 0%,
+      color-mix(in srgb, var(--accent-link) 6%, transparent) 30%,
+      transparent 70%),
+    /* mint ghost */
+    radial-gradient(circle 26vw at calc(var(--blob2-x) - 16%) calc(var(--blob2-y) - 12%),
+      color-mix(in srgb, var(--accent-link) 10%, transparent) 0%,
+      transparent 75%),
+    /* faint paper grain */
     radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink) 4%, transparent) 1px, transparent 0);
-  background-size: 3px 3px;
+  background-size: 100% 100vh, 100% 100vh, 100% 100vh, 100% 100vh, 3px 3px;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  background-attachment: fixed, fixed, fixed, fixed, scroll;
+  animation: bg-drift linear both;
+  animation-timeline: scroll(root);
 }
 
 [data-theme="dark"] body {
   background-image:
+    radial-gradient(circle 50vw at var(--blob1-x) var(--blob1-y),
+      color-mix(in srgb, var(--accent) 16%, transparent) 0%,
+      color-mix(in srgb, var(--accent) 7%, transparent) 30%,
+      transparent 70%),
+    radial-gradient(circle 28vw at calc(var(--blob1-x) + 18%) calc(var(--blob1-y) + 14%),
+      color-mix(in srgb, var(--accent) 11%, transparent) 0%,
+      transparent 75%),
+    radial-gradient(circle 48vw at var(--blob2-x) var(--blob2-y),
+      color-mix(in srgb, var(--accent-link) 14%, transparent) 0%,
+      color-mix(in srgb, var(--accent-link) 6%, transparent) 30%,
+      transparent 70%),
+    radial-gradient(circle 26vw at calc(var(--blob2-x) - 16%) calc(var(--blob2-y) - 12%),
+      color-mix(in srgb, var(--accent-link) 10%, transparent) 0%,
+      transparent 75%),
     radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 0);
-  background-size: 4px 4px;
+  background-size: 100% 100vh, 100% 100vh, 100% 100vh, 100% 100vh, 4px 4px;
+}
+
+/* Curved paths via midpoint keyframe — blobs swing rather than march straight. */
+@keyframes bg-drift {
+  0%   { --blob1-x: 18%; --blob1-y: 22%; --blob2-x: 82%; --blob2-y: 78%; }
+  50%  { --blob1-x: 58%; --blob1-y: 38%; --blob2-x: 42%; --blob2-y: 62%; }
+  100% { --blob1-x: 75%; --blob1-y: 82%; --blob2-x: 25%; --blob2-y: 18%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
 }
 
 a { color: inherit; }
@@ -1005,6 +1065,17 @@ dl, ul, ol { margin: 0; padding: 0; list-style: none; }
 .assistant .work-list {
   margin-top: 12px;
 }
+
+/* ── Assistant-content card (about, now, elsewhere) ─────────────────── */
+
+.card {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--card);
+  padding: 22px 24px;
+}
+.card > :first-child { margin-top: 0; }
+.card > :last-child  { margin-bottom: 0; }
 
 /* ── About fields (when shown inline inside an assistant block) ──────── */
 

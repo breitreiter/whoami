@@ -162,14 +162,15 @@ function App() {
           args={SECTIONS[0].args}
           summary={summaries.about}
         >
-          <p className="prose">{data.about}</p>
-          <dl className="whoami-fields whoami-fields--inline">
-            <Field label="role"     value={data.identity.role} />
-            <Field label="location" value={
-              <span>{data.identity.location} <span className="dim">· {data.identity.lat} {data.identity.lon}</span></span>
-            } />
-            <Field label="status"   value={<span className="status-on">{data.identity.status}</span>} />
-          </dl>
+          <div className="card">
+            <p className="prose">{data.about}</p>
+            <dl className="whoami-fields whoami-fields--inline">
+              <Field label="role"     value={data.identity.role} />
+              <Field label="location" value={
+                <span>{data.identity.location} <span className="dim">· {data.identity.lat} {data.identity.lon}</span></span>
+              } />
+            </dl>
+          </div>
         </Turn>
 
         {/* ── work ── */}
@@ -195,18 +196,20 @@ function App() {
           args={SECTIONS[2].args}
           summary={summaries.now}
         >
-          <dl className="now-grid">
-            {data.now.map((row) => (
-              <React.Fragment key={row.label}>
-                <dt className="now-dt">{row.label.toLowerCase()}</dt>
-                <dd className="now-dd">
-                  {row.href
-                    ? <TermLink href={row.href}>{row.text}</TermLink>
-                    : row.text}
-                </dd>
-              </React.Fragment>
-            ))}
-          </dl>
+          <div className="card">
+            <dl className="now-grid">
+              {data.now.map((row) => (
+                <React.Fragment key={row.label}>
+                  <dt className="now-dt">{row.label.toLowerCase()}</dt>
+                  <dd className="now-dd">
+                    {row.href
+                      ? <TermLink href={row.href}>{row.text}</TermLink>
+                      : row.text}
+                  </dd>
+                </React.Fragment>
+              ))}
+            </dl>
+          </div>
         </Turn>
 
         {/* ── elsewhere ── */}
@@ -217,15 +220,17 @@ function App() {
           args={SECTIONS[3].args}
           summary={summaries.elsewhere}
         >
-          <ul className="elsewhere">
-            {data.elsewhere.map((e) => (
-              <li key={e.label}>
-                <span className="elsewhere-key">{e.label}</span>
-                <span className="elsewhere-eq" aria-hidden="true">=</span>
-                <TermLink href={e.href}>"{e.handle}"</TermLink>
-              </li>
-            ))}
-          </ul>
+          <div className="card">
+            <ul className="elsewhere">
+              {data.elsewhere.map((e) => (
+                <li key={e.label}>
+                  <span className="elsewhere-key">{e.label}</span>
+                  <span className="elsewhere-eq" aria-hidden="true">=</span>
+                  <TermLink href={e.href}>"{e.handle}"</TermLink>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Turn>
 
         {/* end-of-transcript marker */}
