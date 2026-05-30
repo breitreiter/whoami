@@ -50,7 +50,9 @@ window.SITE = {
         "Designing and coordinating a unified experience for Tricentis’s AI",
         "features. Ensuring our AI strategy centers and empowers humans."
       ].join(' '),
-      links: [],
+      links: [
+        { label: 'case', href: 'case/qdash.html', display: 'qDash Dashboards' }
+      ],
     },
     {
       id: 'grafana',
