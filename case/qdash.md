@@ -4,11 +4,11 @@ title: qDash
 subtitle: An agent-native dashboard and reporting system
 layout: default
 ---
-**My role:** Concept, design, prototype engineering
-**Lifecycle:** New system, early alpha
-**Team size:** 1
-**Industry:** Software testing / quality engineering
-**Task:** Build a dashboarding system that both developers and non-technical users can author, and that embeds cleanly into our existing products
+**My role:** Concept, design, prototype engineering  
+**Lifecycle:** New system, early alpha  
+**Team size:** 1  
+**Industry:** Software testing / quality engineering  
+**Task:** Build a dashboarding system that both developers and non-technical users can author, and that embeds cleanly into our existing products  
 **Outcome:** Repo with internal traction; entering a 5-customer alpha
 
 There's a familiar split in dashboarding. Some people want to experience a dashboard as an interactive GUI. They author iteratively, slowly watching the dashboard take shape as they tweak and tune, add and subtract. Others want to treat dashboards as a software artifact, a file in a repo, reviewed and versioned like anything else. When I was at Grafana I started out on the dashboards-as-code team, and I heard this dichotomy constantly. Plenty of users wanted one mode or the other. Plenty more admitted their own org was split down the middle. qDash starts from the premise that you shouldn't have to choose.

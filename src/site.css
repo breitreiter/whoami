@@ -12,6 +12,7 @@
   --accent-strong: #60ebf0; /* super-emphasis (brand glyph, hero accents) */
   --accent-link:   #60f0c4; /* interactive (links, focus, cmdk active) */
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: ui-sans-serif, system-ui, Helvetica, Arial, sans-serif;
 
   /* Derived tones */
   --mute:    color-mix(in srgb, var(--ink) 50%, var(--bg));
@@ -130,6 +131,9 @@ body {
   50%  { --blob1-x: 58%; --blob1-y: 38%; --blob2-x: 42%; --blob2-y: 62%; }
   100% { --blob1-x: 75%; --blob1-y: 82%; --blob2-x: 25%; --blob2-y: 18%; }
 }
+
+/* Case studies: freeze the blobs at rest — the drift distracts from prose. */
+body:has(.page--case) { animation: none; }
 
 @media (prefers-reduced-motion: reduce) {
   body { animation: none; }
@@ -1226,10 +1230,10 @@ dl, ul, ol { margin: 0; padding: 0; list-style: none; }
   margin: 8px 0 0;
 }
 
-/* Case-study prose breaks character: proportional serif for the body, mono
+/* Case-study prose breaks character: proportional sans for the body, mono
    stays on headings and code so the page still reads as part of the site. */
 .markdown {
-  font-family: ui-serif, Charter, "Iowan Old Style", Cambria, Georgia, serif;
+  font-family: var(--font-sans);
   font-size: 17px;
   line-height: 1.65;
   color: color-mix(in srgb, var(--ink) 90%, var(--bg));
